@@ -1,0 +1,3 @@
+basket_player_homepage:
+    path:     /player/index
+    defaults: { _controller: BasketPlayerBundle:Player:index }

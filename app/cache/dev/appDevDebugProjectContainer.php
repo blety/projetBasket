@@ -3024,6 +3024,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\DatabaseBundle/Resources/views', 'BasketDatabase');
+        $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\PlayerBundle/Resources/views', 'BasketPlayer');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/wamp/www/ProjectBasket/app/Resources/views');
@@ -3511,6 +3512,7 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'BasketDatabaseBundle' => 'Basket\\DatabaseBundle\\BasketDatabaseBundle',
+                'BasketPlayerBundle' => 'Basket\\PlayerBundle\\BasketPlayerBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

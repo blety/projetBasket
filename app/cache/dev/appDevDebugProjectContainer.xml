@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="BasketDatabaseBundle">Basket\DatabaseBundle\BasketDatabaseBundle</parameter>
+      <parameter key="BasketPlayerBundle">Basket\PlayerBundle\BasketPlayerBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2809,6 +2810,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\ProjectBasket\src\Basket\DatabaseBundle/Resources/views</argument>
         <argument>BasketDatabase</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\ProjectBasket\src\Basket\PlayerBundle/Resources/views</argument>
+        <argument>BasketPlayer</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\ProjectBasket\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

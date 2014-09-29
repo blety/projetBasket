@@ -25,10 +25,11 @@ class RefPersonne
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Personne", mappedBy="refPersonne")
      */
     private $type;
 
-
+    
     /**
      * Get id
      *

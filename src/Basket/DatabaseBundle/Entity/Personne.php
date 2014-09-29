@@ -24,51 +24,37 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $name;
+    private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="surname", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255)
      */
-    private $surname;
+    private $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", length=255)
+     * @ORM\Column(name="genre", type="string", length=255)
      */
-    private $gender;
+    private $genre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", length=255)
      */
-    private $address;
+    private $adresse;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parentsAddress", type="string", length=255)
+     * @ORM\Column(name="adresseParents", type="string", length=255)
      */
-    private $parentsAddress;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="parentsEmail", type="string", length=255)
-     */
-    private $parentsEmail;
+    private $adresseParents;
 
     /**
      * @var integer
@@ -80,9 +66,9 @@ class Personne
     /**
      * @var integer
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="tel", type="integer")
      */
-    private $phone;
+    private $tel;
 
     /**
      * @var integer
@@ -94,17 +80,14 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="misc", type="text")
+     * @ORM\Column(name="text", type="text")
      */
-    private $misc;
-
+    private $divers;
+    
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthdate", type="date")
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\RefPersonne", inversedBy="type")
      */
-    private $birthdate;
-
+    private $refPersonne;
 
     /**
      * Get id
@@ -117,164 +100,118 @@ class Personne
     }
 
     /**
-     * Set name
+     * Set nom
      *
-     * @param string $name
+     * @param string $nom
      * @return Personne
      */
-    public function setName($name)
+    public function setNom($nom)
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get nom
      *
      * @return string 
      */
-    public function getName()
+    public function getNom()
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
-     * Set surname
+     * Set prenom
      *
-     * @param string $surname
+     * @param string $prenom
      * @return Personne
      */
-    public function setSurname($surname)
+    public function setPrenom($prenom)
     {
-        $this->surname = $surname;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     /**
-     * Get surname
+     * Get prenom
      *
      * @return string 
      */
-    public function getSurname()
+    public function getPrenom()
     {
-        return $this->surname;
+        return $this->prenom;
     }
 
     /**
-     * Set gender
+     * Set genre
      *
-     * @param string $gender
+     * @param string $genre
      * @return Personne
      */
-    public function setGender($gender)
+    public function setGenre($genre)
     {
-        $this->gender = $gender;
+        $this->genre = $genre;
 
         return $this;
     }
 
     /**
-     * Get gender
+     * Get genre
      *
      * @return string 
      */
-    public function getGender()
+    public function getGenre()
     {
-        return $this->gender;
+        return $this->genre;
     }
 
     /**
-     * Set address
+     * Set adresse
      *
-     * @param string $address
+     * @param string $adresse
      * @return Personne
      */
-    public function setAddress($address)
+    public function setAdresse($adresse)
     {
-        $this->address = $address;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get adresse
      *
      * @return string 
      */
-    public function getAddress()
+    public function getAdresse()
     {
-        return $this->address;
+        return $this->adresse;
     }
 
     /**
-     * Set parentsAddress
+     * Set adresseParents
      *
-     * @param string $parentsAddress
+     * @param string $adresseParents
      * @return Personne
      */
-    public function setParentsAddress($parentsAddress)
+    public function setAdresseParents($adresseParents)
     {
-        $this->parentsAddress = $parentsAddress;
+        $this->adresseParents = $adresseParents;
 
         return $this;
     }
 
     /**
-     * Get parentsAddress
+     * Get adresseParents
      *
      * @return string 
      */
-    public function getParentsAddress()
+    public function getAdresseParents()
     {
-        return $this->parentsAddress;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Personne
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set parentsEmail
-     *
-     * @param string $parentsEmail
-     * @return Personne
-     */
-    public function setParentsEmail($parentsEmail)
-    {
-        $this->parentsEmail = $parentsEmail;
-
-        return $this;
-    }
-
-    /**
-     * Get parentsEmail
-     *
-     * @return string 
-     */
-    public function getParentsEmail()
-    {
-        return $this->parentsEmail;
+        return $this->adresseParents;
     }
 
     /**
@@ -301,26 +238,26 @@ class Personne
     }
 
     /**
-     * Set phone
+     * Set tel
      *
-     * @param integer $phone
+     * @param integer $tel
      * @return Personne
      */
-    public function setPhone($phone)
+    public function setTel($tel)
     {
-        $this->phone = $phone;
+        $this->tel = $tel;
 
         return $this;
     }
 
     /**
-     * Get phone
+     * Get tel
      *
      * @return integer 
      */
-    public function getPhone()
+    public function getTel()
     {
-        return $this->phone;
+        return $this->tel;
     }
 
     /**
@@ -346,49 +283,51 @@ class Personne
         return $this->license;
     }
 
+
     /**
-     * Set misc
+     * Set divers
      *
-     * @param string $misc
+     * @param string $divers
      * @return Personne
      */
-    public function setMisc($misc)
+    public function setDivers($divers)
     {
-        $this->misc = $misc;
+        $this->divers = $divers;
 
         return $this;
     }
 
     /**
-     * Get misc
+     * Get divers
      *
      * @return string 
      */
-    public function getMisc()
+    public function getDivers()
     {
-        return $this->misc;
+        return $this->divers;
     }
 
+
     /**
-     * Set birthdate
+     * Set refPersonne
      *
-     * @param \DateTime $birthdate
+     * @param \Basket\DatabaseBundle\Entity\RefPersonne $refPersonne
      * @return Personne
      */
-    public function setBirthdate($birthdate)
+    public function setRefPersonne(\Basket\DatabaseBundle\Entity\RefPersonne $refPersonne = null)
     {
-        $this->birthdate = $birthdate;
+        $this->refPersonne = $refPersonne;
 
         return $this;
     }
 
     /**
-     * Get birthdate
+     * Get refPersonne
      *
-     * @return \DateTime 
+     * @return \Basket\DatabaseBundle\Entity\RefPersonne 
      */
-    public function getBirthdate()
+    public function getRefPersonne()
     {
-        return $this->birthdate;
+        return $this->refPersonne;
     }
 }
