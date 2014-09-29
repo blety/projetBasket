@@ -25,6 +25,7 @@ class Personne
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", inversedBy="numEquipe")
      */
     private $nom;
 
