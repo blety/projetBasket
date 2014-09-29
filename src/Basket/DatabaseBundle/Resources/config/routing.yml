@@ -1,0 +1,3 @@
+basket_database_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BasketDatabaseBundle:Default:index }
