@@ -1,0 +1,3 @@
+basket_entrainement_homepage:
+    path:     /entrainement/index
+    defaults: { _controller: BasketEntrainementBundle:Entrainement:index }

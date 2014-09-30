@@ -122,6 +122,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // basket_entrainement_homepage
+        if ($pathinfo === '/entrainement/index') {
+            return array (  '_controller' => 'BasketEntrainementBundle:Entrainement:index',  '_route' => 'basket_entrainement_homepage',);
+        }
+
         // basket_player_homepage
         if ($pathinfo === '/player/index') {
             return array (  '_controller' => 'Basket\\PlayerBundle\\Controller\\PlayerController::indexAction',  '_route' => 'basket_player_homepage',);

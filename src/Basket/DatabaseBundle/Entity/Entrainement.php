@@ -48,8 +48,27 @@ class Entrainement
      * @ORM\Column(name="obligatoire", type="boolean")
      */
     private $obligatoire;
-
-
+    
+    /**
+     * @var \Salle
+     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle", cascade={"persist"})
+     */
+    private $salle;
+    
+    /**
+     * @var \Personne
+     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     */
+    private $entraineur;
+    
+    
+    /**
+     * @var \Equipe
+     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     */
+    private $equipe;
+    
+    
     /**
      * Get id
      *
@@ -150,5 +169,76 @@ class Entrainement
     public function getObligatoire()
     {
         return $this->obligatoire;
+    }
+
+    
+
+    /**
+     * Set salle
+     *
+     * @param \Basket\DatabaseBundle\Entity\Salle $salle
+     * @return Entrainement
+     */
+    public function setSalle(\Basket\DatabaseBundle\Entity\Salle $salle = null)
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    /**
+     * Get salle
+     *
+     * @return \Basket\DatabaseBundle\Entity\Salle 
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+
+    /**
+     * Set entraineur
+     *
+     * @param \Basket\DatabaseBundle\Entity\Personne $entraineur
+     * @return Entrainement
+     */
+    public function setEntraineur(\Basket\DatabaseBundle\Entity\Personne $entraineur = null)
+    {
+        $this->entraineur = $entraineur;
+
+        return $this;
+    }
+
+    /**
+     * Get entraineur
+     *
+     * @return \Basket\DatabaseBundle\Entity\Personne 
+     */
+    public function getEntraineur()
+    {
+        return $this->entraineur;
+    }
+
+    /**
+     * Set equipe
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipe
+     * @return Entrainement
+     */
+    public function setEquipe(\Basket\DatabaseBundle\Entity\Equipe $equipe = null)
+    {
+        $this->equipe = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Get equipe
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipe()
+    {
+        return $this->equipe;
     }
 }

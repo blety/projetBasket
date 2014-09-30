@@ -1,0 +1,4 @@
+services:
+#    basket_entrainement.example:
+#        class: Basket\EntrainementBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
