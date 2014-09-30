@@ -122,9 +122,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // basket_rencontre_homepage
+        if ($pathinfo === '/rencontreDom/index') {
+            return array (  '_controller' => 'Basket\\RencontreBundle\\Controller\\RencontreController::indexAction',  '_route' => 'basket_rencontre_homepage',);
+        }
+
         // basket_entrainement_homepage
         if ($pathinfo === '/entrainement/index') {
-            return array (  '_controller' => 'BasketEntrainementBundle:Entrainement:index',  '_route' => 'basket_entrainement_homepage',);
+            return array (  '_controller' => 'Basket\\EntrainementBundle\\Controller\\EntrainementController::indexAction',  '_route' => 'basket_entrainement_homepage',);
         }
 
         // basket_player_homepage

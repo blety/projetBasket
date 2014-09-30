@@ -1,0 +1,3 @@
+basket_rencontre_homepage:
+    path:     /rencontreDom/index
+    defaults: { _controller: BasketRencontreBundle:Rencontre:index }

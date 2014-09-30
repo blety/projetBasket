@@ -19,6 +19,7 @@
       <parameter key="BasketDatabaseBundle">Basket\DatabaseBundle\BasketDatabaseBundle</parameter>
       <parameter key="BasketPlayerBundle">Basket\PlayerBundle\BasketPlayerBundle</parameter>
       <parameter key="BasketEntrainementBundle">Basket\EntrainementBundle\BasketEntrainementBundle</parameter>
+      <parameter key="BasketRencontreBundle">Basket\RencontreBundle\BasketRencontreBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -2819,6 +2820,10 @@
       <call method="addPath">
         <argument>C:\wamp\www\ProjectBasket\src\Basket\EntrainementBundle/Resources/views</argument>
         <argument>BasketEntrainement</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp\www\ProjectBasket\src\Basket\RencontreBundle/Resources/views</argument>
+        <argument>BasketRencontre</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp\www\ProjectBasket\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

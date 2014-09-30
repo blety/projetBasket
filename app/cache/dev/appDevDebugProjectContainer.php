@@ -3026,6 +3026,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\DatabaseBundle/Resources/views', 'BasketDatabase');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\PlayerBundle/Resources/views', 'BasketPlayer');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\EntrainementBundle/Resources/views', 'BasketEntrainement');
+        $instance->addPath('C:\\wamp\\www\\ProjectBasket\\src\\Basket\\RencontreBundle/Resources/views', 'BasketRencontre');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\wamp\\www\\ProjectBasket\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/wamp/www/ProjectBasket/app/Resources/views');
@@ -3515,6 +3516,7 @@ class appDevDebugProjectContainer extends Container
                 'BasketDatabaseBundle' => 'Basket\\DatabaseBundle\\BasketDatabaseBundle',
                 'BasketPlayerBundle' => 'Basket\\PlayerBundle\\BasketPlayerBundle',
                 'BasketEntrainementBundle' => 'Basket\\EntrainementBundle\\BasketEntrainementBundle',
+                'BasketRencontreBundle' => 'Basket\\RencontreBundle\\BasketRencontreBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',

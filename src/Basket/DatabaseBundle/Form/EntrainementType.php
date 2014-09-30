@@ -19,15 +19,19 @@ class EntrainementType extends AbstractType
             ->add('debut')
             ->add('fin')
             ->add('obligatoire')
-            ->add('salle')
+            ->add('salle','entity',array(
+                'class'=>'BasketDatabaseBundle:Salle',
+                'property'=>'nom'
+            ))
             ->add('entraineur','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
                 'property'=>'nom'
             ))
             ->add('equipe','entity',array(
                 'class'=>'BasketDatabaseBundle:Equipe',
-                'property'=>'nom'
+                'property'=>'categorie'
             ))
+            ->add('save','submit')
         ;
     }
     

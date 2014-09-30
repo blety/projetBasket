@@ -46,7 +46,12 @@ class Equipe
      * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Personne", mappedBy="nom")
      */
     private $joueur;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Categorie", inversedBy="categorie")
+     */
+    private $categorie;
+      
     /**
      * Get id
      *

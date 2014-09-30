@@ -11,4 +11,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class RefPersonneRepository extends EntityRepository {
   
+      public function selectArbitre(){
+    $qb = $this->createQueryBuilder('a');
+    $qb->where('a.type = :type')
+              ->setParameter('type', "arbitre officiel");
+                 
+        return $qb->getQuery()->getResult();
+  }
 }

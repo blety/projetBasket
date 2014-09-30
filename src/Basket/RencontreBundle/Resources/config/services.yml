@@ -1,0 +1,4 @@
+services:
+#    basket_rencontre.example:
+#        class: Basket\RencontreBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -24,7 +24,7 @@ class Categorie
     
     /**
      * @var datetime
-     * @ORM\Column(name="annee", type="datetime")
+     * @ORM\Column(name="annee", type="datetime", nullable=true)
      */
     private $annee;
     
@@ -32,6 +32,7 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="categorie", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Equipe", mappedBy="categorie")
      */
     private $categorie;
 
@@ -51,6 +52,14 @@ class Categorie
     public function getId()
     {
         return $this->id;
+    }
+    
+    
+    /**
+     * 
+     */
+    public function __toString() {
+      return $this->categorie;
     }
 
     /**
@@ -97,5 +106,28 @@ class Categorie
     public function getSigle()
     {
         return $this->sigle;
+    }
+
+    /**
+     * Set annee
+     *
+     * @param \DateTime $annee
+     * @return Categorie
+     */
+    public function setAnnee($annee)
+    {
+        $this->annee = $annee;
+
+        return $this;
+    }
+
+    /**
+     * Get annee
+     *
+     * @return \DateTime 
+     */
+    public function getAnnee()
+    {
+        return $this->annee;
     }
 }
