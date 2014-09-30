@@ -1,0 +1,3 @@
+acme_twig_homepage:
+    path:     /essai/{name}
+    defaults: { _controller: AcmeTwigBundle:Default:index }

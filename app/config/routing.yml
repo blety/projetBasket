@@ -1,3 +1,7 @@
+acme_twig:
+    resource: "@AcmeTwigBundle/Resources/config/routing.yml"
+    prefix:   /
+
 basket_entrainement:
     resource: "@BasketEntrainementBundle/Resources/config/routing.yml"
     prefix:   /

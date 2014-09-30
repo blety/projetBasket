@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Basket\DatabaseBundle\BasketDatabaseBundle(),
             new Basket\PlayerBundle\BasketPlayerBundle(),
             new Basket\EntrainementBundle\BasketEntrainementBundle(),
+            new Acme\TwigBundle\AcmeTwigBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {            

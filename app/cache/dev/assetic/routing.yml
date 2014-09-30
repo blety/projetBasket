@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:/wamp/www/ProjectBasket/app/config/routing_dev.yml'
+    resource: 'C:/wamp/www/symfony-basket-project-56fbfc0357e4/app/config/routing_dev.yml'
