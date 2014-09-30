@@ -45,13 +45,13 @@ class Entrainement
     /**
      * @var boolean
      *
-     * @ORM\Column(name="obligatoire", type="boolean")
+     * @ORM\Column(name="obligatoire", type="boolean", nullable=true)
      */
     private $obligatoire;
     
     /**
      * @var \Salle
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle")
      */
     private $salle;
     
@@ -64,7 +64,7 @@ class Entrainement
     
     /**
      * @var \Equipe
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipe;
     

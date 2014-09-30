@@ -45,13 +45,13 @@ class Entrainement
     /**
      * @var boolean
      *
-     * @ORM\Column(name="obligatoire", type="boolean")
+     * @ORM\Column(name="obligatoire", type="boolean", nullable=true)
      */
     private $obligatoire;
     
     /**
      * @var \Salle
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle")
      */
     private $salle;
     
@@ -64,7 +64,7 @@ class Entrainement
     
     /**
      * @var \Equipe
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipe;
     
@@ -194,5 +194,51 @@ class Entrainement
     public function getSalle()
     {
         return $this->salle;
+    }
+
+    /**
+     * Set entraineur
+     *
+     * @param \Basket\DatabaseBundle\Entity\Personne $entraineur
+     * @return Entrainement
+     */
+    public function setEntraineur(\Basket\DatabaseBundle\Entity\Personne $entraineur = null)
+    {
+        $this->entraineur = $entraineur;
+
+        return $this;
+    }
+
+    /**
+     * Get entraineur
+     *
+     * @return \Basket\DatabaseBundle\Entity\Personne 
+     */
+    public function getEntraineur()
+    {
+        return $this->entraineur;
+    }
+
+    /**
+     * Set equipe
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipe
+     * @return Entrainement
+     */
+    public function setEquipe(\Basket\DatabaseBundle\Entity\Equipe $equipe = null)
+    {
+        $this->equipe = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Get equipe
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipe()
+    {
+        return $this->equipe;
     }
 }

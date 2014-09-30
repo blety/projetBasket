@@ -5,6 +5,7 @@ namespace Basket\DatabaseBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class EntrainementType extends AbstractType
 {
@@ -25,7 +26,12 @@ class EntrainementType extends AbstractType
             ))
             ->add('entraineur','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom'
+                'property'=>'nom',
+                'query_builder'=> function(EntityRepository $er) {
+                    return $er->createQueryBuilder('p')
+                            ->where('p.refPersonne=:id')
+                            ->setParameter('id',5);
+                    },
             ))
             ->add('equipe','entity',array(
                 'class'=>'BasketDatabaseBundle:Equipe',
