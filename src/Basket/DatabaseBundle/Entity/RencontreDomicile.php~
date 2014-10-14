@@ -24,56 +24,56 @@ class RencontreDomicile extends Rencontre
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="convocation", type="datetime")
+     * @ORM\Column(name="convocation", type="time")
      */
     private $convocation;
     
     /**
      * @var \Equipe
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipeDom;
     
     /**
      * @var \Equipe
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipeAdv;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $arbitreA;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $arbitreB;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurA;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurB;
     
     /**
      * @var \Personne
      * @ORM\Column(name="marqueurC", nullable=true)
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurC;
     
@@ -201,5 +201,74 @@ class RencontreDomicile extends Rencontre
     public function getArbitreB()
     {
         return $this->arbitreB;
+    }
+
+    /**
+     * Set marqueurC
+     *
+     * @param string $marqueurC
+     * @return RencontreDomicile
+     */
+    public function setMarqueurC($marqueurC)
+    {
+        $this->marqueurC = $marqueurC;
+
+        return $this;
+    }
+
+    /**
+     * Get marqueurC
+     *
+     * @return string 
+     */
+    public function getMarqueurC()
+    {
+        return $this->marqueurC;
+    }
+
+    /**
+     * Set marqueurA
+     *
+     * @param \Basket\DatabaseBundle\Entity\Personne $marqueurA
+     * @return RencontreDomicile
+     */
+    public function setMarqueurA(\Basket\DatabaseBundle\Entity\Personne $marqueurA = null)
+    {
+        $this->marqueurA = $marqueurA;
+
+        return $this;
+    }
+
+    /**
+     * Get marqueurA
+     *
+     * @return \Basket\DatabaseBundle\Entity\Personne 
+     */
+    public function getMarqueurA()
+    {
+        return $this->marqueurA;
+    }
+
+    /**
+     * Set marqueurB
+     *
+     * @param \Basket\DatabaseBundle\Entity\Personne $marqueurB
+     * @return RencontreDomicile
+     */
+    public function setMarqueurB(\Basket\DatabaseBundle\Entity\Personne $marqueurB = null)
+    {
+        $this->marqueurB = $marqueurB;
+
+        return $this;
+    }
+
+    /**
+     * Get marqueurB
+     *
+     * @return \Basket\DatabaseBundle\Entity\Personne 
+     */
+    public function getMarqueurB()
+    {
+        return $this->marqueurB;
     }
 }

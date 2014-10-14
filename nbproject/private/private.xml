@@ -4,16 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/ProjectBasket/src/Basket/PlayerBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Form/EquipeType.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/Categorie.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/Saison.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/PlayerBundle/Resources/views/Default/index.html.twig</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/RefPersonne.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/PlayerBundle/Controller/PlayerController.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/Rencontre.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/Personne.php</file>
+            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Form/RencontreType.php</file>
             <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Form/PersonneType.php</file>
-            <file>file:/C:/wamp/www/ProjectBasket/src/Basket/DatabaseBundle/Entity/Equipe.php</file>
         </group>
     </open-files>
 </project-private>

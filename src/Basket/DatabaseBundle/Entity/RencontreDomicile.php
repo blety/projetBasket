@@ -24,56 +24,56 @@ class RencontreDomicile extends Rencontre
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="convocation", type="datetime")
+     * @ORM\Column(name="convocation", type="time")
      */
     private $convocation;
     
     /**
      * @var \Equipe
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipeDom;
     
     /**
      * @var \Equipe
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $equipeAdv;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $arbitreA;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $arbitreB;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurA;
     
     /**
      * @var \Personne
      * 
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurB;
     
     /**
      * @var \Personne
      * @ORM\Column(name="marqueurC", nullable=true)
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $marqueurC;
     

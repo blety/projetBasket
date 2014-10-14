@@ -3,6 +3,7 @@
 namespace Basket\DatabaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Personne
@@ -58,16 +59,16 @@ class Personne
     private $adresseParents;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="mobile", type="integer")
+     * @var string
+     * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/") 
+     * @ORM\Column(name="mobile", type="string", length=255)
      */
     private $mobile;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="tel", type="integer")
+     * @var string
+     * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/")
+     * @ORM\Column(name="tel", type="string", length=255)
      */
     private $tel;
 
@@ -330,5 +331,9 @@ class Personne
     public function getRefPersonne()
     {
         return $this->refPersonne;
+    }
+    
+    public function __toString(){
+      return $this->nom;
     }
 }

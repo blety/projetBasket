@@ -15,9 +15,10 @@ class RencontreDomicileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+        $builder            
+            ->add('date')    
             ->add('convocation')
-            
+            ->add('score')
             ->add('equipeDom','entity',array(
                 'class'=>'BasketDatabaseBundle:Equipe',
                 'property'=>'categorie'
@@ -28,18 +29,20 @@ class RencontreDomicileType extends AbstractType
             ))
             ->add('arbitreA','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom',
+                //'property'=>'nom',
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
+                            
                             ->where('p.refPersonne=:id')
                             ->setParameter('id',2);
                     },
             ))
             ->add('arbitreB','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom',
+                //'property'=>'nom',
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
+                            
                             ->where('p.refPersonne=:id')
                             ->setParameter('id',2);
                     },

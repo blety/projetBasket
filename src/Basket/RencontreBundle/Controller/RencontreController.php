@@ -14,9 +14,10 @@ class RencontreController extends Controller
         $rencontreDom = new RencontreDomicile();
         $form = $this->createForm(new RencontreDomicileType(),$rencontreDom);
         $form->handleRequest($request);
+        
         if ($form->isValid()){
           $em = $this->getDoctrine()->getManager();
-          //$personne_repository = $em->getRepository('BasketDatabaseBundle:Personne');
+          $rencontreDom->setType(0);
           $em->persist($rencontreDom);
           $em->flush();
         }
