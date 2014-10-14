@@ -73,16 +73,16 @@ class Personne
     private $tel;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="license", type="integer")
+     * @var string
+     * @Assert\Regex("/^[A-Z]{2}[0-9]{6}$/")
+     * @ORM\Column(name="license", type="string", length=255)
      */
     private $license;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="text", type="text", nullable=true)
      */
     private $divers;
     

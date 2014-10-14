@@ -20,6 +20,12 @@ class PlayerController extends Controller
           $em->persist($player);
           $em->flush();
         }
-        return $this->render('BasketPlayerBundle:Default:index.html.twig', array('form' => $form->createView()));
+        $em = $this->getDoctrine()->getEntityManager();
+        $allPlayers = $em->getRepository('BasketDatabaseBundle:Personne')->findAll();
+        //var_dump($allPlayers);
+        return $this->render('BasketPlayerBundle::index.html.twig', array(
+            'form' => $form->createView(),
+            'allPlayers'=>$allPlayers
+                ));
     }
 }

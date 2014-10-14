@@ -18,7 +18,7 @@ class PersonneType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('genre','choice',array(
-                'choices'=> array('D' => 'masculin', 'E' => 'féminin')
+                'choices'=> array('masculin' => 'masculin', 'féminin' => 'féminin')
             ))
             ->add('adresse')
             ->add('adresseParents')

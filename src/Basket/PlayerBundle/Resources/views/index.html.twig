@@ -1,0 +1,50 @@
+Tous les joueurs
+
+{{ form(form) }}
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Genre</th>
+    <th>Adresse</th>
+    <th>Adresse des parents</th>
+    <th>Mobile</th>
+    <th>Telephone</th>
+    <th>License</th>
+    <th>Divers</th>
+  </tr>
+  
+{% for player in allPlayers %}
+  <tr>
+  <td>
+  {{player.nom}}
+  </td>
+  <td>
+    {{player.prenom}}
+  </td>
+  <td>
+    {{player.genre}}
+  </td>
+  <td>
+    {{player.adresse}}
+  </td>
+  <td>
+    {{player.adresseParents}}
+  </td>
+  <td>
+    {{player.mobile}}
+  </td>
+  <td>
+    {{player.tel}}
+  </td>
+  <td>
+    {{player.license}}
+  </td>
+  <td>
+    {{player.divers}}
+  </td>
+  </tr>
+  {% endfor %}
+  
+</table>
