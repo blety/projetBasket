@@ -285,3 +285,11 @@ b99fd3,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/player/index
 8b1ed9,127.0.0.1,POST,http://localhost/ProjectBasket/web/app_dev.php/player/index,1413299839,
 2e573f,127.0.0.1,POST,http://localhost/ProjectBasket/web/app_dev.php/player/index,1413299847,
 d3b7b3,127.0.0.1,POST,http://localhost/ProjectBasket/web/app_dev.php/player/index,1413299923,
+e0a61a,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413373664,001872
+001872,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413373664,
+13d6b7,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413373810,
+0e73df,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413375517,c62c94
+c62c94,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413375517,
+7636aa,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413375890,f2aae7
+f2aae7,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413375890,
+022907,127.0.0.1,GET,http://localhost/ProjectBasket/web/app_dev.php/entrainement/index,1413375949,

@@ -1,0 +1,42 @@
+Tous les entrainements
+
+{{ form(form) }}
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Début</th>
+    <th>Fin</th>
+    <th>Obligatoire</th>
+    <th>Salle</th>
+    <th>Entraineur</th>
+    <th>Equipe</th>   
+  </tr>
+  
+{% for e in allEntrainement %}
+  <tr>
+  <td>
+  {{e.jour|date("d/m/Y")}}
+  </td>
+  <td>
+    {{e.debut | date("d/m/Y")}}
+  </td>
+  <td>
+    {{e.fin | date("d/m/Y")}}
+  </td>
+  <td>
+    {{ e.obligatoire }}
+  </td>
+  <td>
+    {{e.salle.nom}}
+  </td>
+  <td>
+    {{e.entraineur.nom}}
+  </td>
+  <td>
+    {{e.equipe.annee | date("d/m/Y")}}
+  </td>  
+  </tr>
+  {% endfor %}
+  
+</table>

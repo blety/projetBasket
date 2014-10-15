@@ -21,6 +21,11 @@ class EntrainementController extends Controller
           $em->flush();
         }
         
-        return $this->render('BasketEntrainementBundle:Default:index.html.twig', array('form' => $form->createView()));
+        $em = $this->getDoctrine()->getEntityManager()->getRepository('BasketDatabaseBundle:Entrainement');
+        $allEntrainement = $em->findAll();
+        return $this->render('BasketEntrainementBundle::index.html.twig', array(
+            'form' => $form->createView(),
+            'allEntrainement' => $allEntrainement,
+                ));
     }
 }
