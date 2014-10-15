@@ -22,23 +22,23 @@ class Entrainement
     private $id;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="jour", type="datetime")
+     * @ORM\Column(name="jour", type="date")
      */
     private $jour;
 
     /**
-     * @var \DateTime
+     * @var \Time
      *
-     * @ORM\Column(name="debut", type="datetime")
+     * @ORM\Column(name="debut", type="time")
      */
     private $debut;
 
     /**
-     * @var \DateTime
+     * @var \Time
      *
-     * @ORM\Column(name="fin", type="datetime")
+     * @ORM\Column(name="fin", type="time")
      */
     private $fin;
 
@@ -57,7 +57,7 @@ class Entrainement
     
     /**
      * @var \Personne
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
     private $entraineur;
     

@@ -1,2 +1,62 @@
 Rencontre à domicile : 
 {{ form(form) }}
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Score</th>
+    <th>Divers</th>    
+    <th>Convocation</th>
+    <th>Equipe à domicile</th>
+    <th>Equipe adverse</th>
+    <th>Arbitre A</th>
+    <th>Arbitre B</th>
+    <th>Marqueur A</th>
+    <th>Marqueur B</th>
+    <th>Marqueur C</th>
+  </tr>
+  
+{% for r in allRencontreDom %}
+  <tr>
+  <td>
+    {{ r.date |date("d/m/Y") }}  
+  </td>
+  <td>
+    {{r.type}}
+    
+  </td>
+  <td>
+    {{r.score}}
+  </td>
+  <td>
+    {{r.divers}}
+  </td>
+  <td>
+    {{r.convocation |date("d/m/Y")}}
+  </td>
+  <td>
+    {{r.equipeDom.categorie.sigle}}
+  </td>
+  <td>
+    {{r.equipeAdv.categorie.sigle}}
+  </td>
+  <td>
+    {{r.arbitreA}}
+  </td>
+  <td>
+    {{r.arbitreB}}
+  </td>
+  <td>
+    {{r.marqueurA}}
+  </td>
+  <td>
+    {{r.marqueurB}}
+    </td>
+    <td>
+      {{r.marqueurC}}
+    </td>
+  </tr>
+  {% endfor %}
+  
+</table>

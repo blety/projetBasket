@@ -18,7 +18,7 @@ class RencontreDomicileType extends AbstractType
         $builder            
             ->add('date')    
             ->add('convocation')
-            ->add('score')
+            ->add('score')            
             ->add('equipeDom','entity',array(
                 'class'=>'BasketDatabaseBundle:Equipe',
                 'property'=>'categorie'
@@ -59,7 +59,8 @@ class RencontreDomicileType extends AbstractType
                 'class'=>'BasketDatabaseBundle:Personne',
                 'property'=>'nom'
             ))
-            ->add('save','submit')
+            ->add('divers')
+            ->add('save','submit')           
         ;
     }
     

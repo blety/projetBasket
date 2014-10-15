@@ -80,7 +80,7 @@ class __TwigTemplate_eb8a418474e3f6ac667f85244212d3cf4f6bca62b6e205e6cd52a3bf687
   <td>
     ";
             // line 37
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "e"), "equipe"), "annee"), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "e"), "equipe"), "categorie"), "sigle"), "html", null, true);
             echo "
   </td>  
   </tr>
