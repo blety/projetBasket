@@ -23,13 +23,6 @@ class Rencontre
     private $id;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="type", type="boolean")
-     */
-    private $type;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="score", type="string", length=255)
@@ -50,7 +43,14 @@ class Rencontre
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
+    
+    /**
+     * @var \Time
+     * 
+     * @ORM\Column(name="heureMatch", type="time")
+     */
+    private $heureMatch;
+    
     
 
     /**
@@ -62,30 +62,7 @@ class Rencontre
     {
         return $this->id;
     }
-
-    /**
-     * Set type
-     *
-     * @param boolean $type
-     * @return Rencontre
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return boolean 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
+    
     /**
      * Set score
      *
@@ -177,4 +154,5 @@ class Rencontre
     {
         return $this->heureMatch;
     }
+    
 }

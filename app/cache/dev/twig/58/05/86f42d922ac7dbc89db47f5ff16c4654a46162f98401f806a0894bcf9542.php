@@ -24,8 +24,7 @@ class __TwigTemplate_580586f42d922ac7dbc89db47f5ff16c4654a46162f98401f806a0894bc
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Type</th>
+    <th>Date</th>    
     <th>Score</th>
     <th>Divers</th>    
     <th>Convocation</th>
@@ -39,82 +38,75 @@ class __TwigTemplate_580586f42d922ac7dbc89db47f5ff16c4654a46162f98401f806a0894bc
   </tr>
   
 ";
-        // line 20
+        // line 19
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "allRencontreDom"));
         foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
-            // line 21
+            // line 20
             echo "  <tr>
   <td>
     ";
-            // line 23
+            // line 22
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "date"), "d/m/Y"), "html", null, true);
             echo "  
-  </td>
+  </td>  
   <td>
     ";
-            // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "type"), "html", null, true);
-            echo "
-    
-  </td>
-  <td>
-    ";
-            // line 30
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "score"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 33
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "divers"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 36
+            // line 31
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "convocation"), "d/m/Y"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 39
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "r"), "equipeDom"), "categorie"), "sigle"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 42
+            // line 37
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "r"), "equipeAdv"), "categorie"), "sigle"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 45
+            // line 40
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "arbitreA"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 48
+            // line 43
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "arbitreB"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 51
+            // line 46
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurA"), "html", null, true);
             echo "
   </td>
   <td>
     ";
-            // line 54
+            // line 49
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurB"), "html", null, true);
             echo "
     </td>
     <td>
       ";
-            // line 57
+            // line 52
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurC"), "html", null, true);
             echo "
     </td>
@@ -124,7 +116,7 @@ class __TwigTemplate_580586f42d922ac7dbc89db47f5ff16c4654a46162f98401f806a0894bc
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 61
+        // line 56
         echo "  
 </table>";
     }
@@ -141,6 +133,6 @@ class __TwigTemplate_580586f42d922ac7dbc89db47f5ff16c4654a46162f98401f806a0894bc
 
     public function getDebugInfo()
     {
-        return array (  128 => 61,  118 => 57,  112 => 54,  106 => 51,  100 => 48,  94 => 45,  88 => 42,  82 => 39,  76 => 36,  70 => 33,  64 => 30,  57 => 26,  51 => 23,  47 => 21,  43 => 20,  22 => 2,  19 => 1,);
+        return array (  120 => 56,  110 => 52,  104 => 49,  98 => 46,  92 => 43,  86 => 40,  80 => 37,  74 => 34,  68 => 31,  62 => 28,  56 => 25,  50 => 22,  46 => 20,  42 => 19,  22 => 2,  19 => 1,);
     }
 }

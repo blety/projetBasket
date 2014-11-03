@@ -23,13 +23,6 @@ class Rencontre
     private $id;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="type", type="boolean")
-     */
-    private $type;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="score", type="string", length=255)
@@ -50,7 +43,14 @@ class Rencontre
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
+    
+    /**
+     * @var \Time
+     * 
+     * @ORM\Column(name="heureMatch", type="time")
+     */
+    private $heureMatch;
+    
     
 
     /**
@@ -62,30 +62,7 @@ class Rencontre
     {
         return $this->id;
     }
-
-    /**
-     * Set type
-     *
-     * @param boolean $type
-     * @return Rencontre
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return boolean 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
+    
     /**
      * Set score
      *
@@ -176,5 +153,51 @@ class Rencontre
     public function getHeureMatch()
     {
         return $this->heureMatch;
+    }
+
+    /**
+     * Set equipeDom
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeDom
+     * @return Rencontre
+     */
+    public function setEquipeDom(\Basket\DatabaseBundle\Entity\Equipe $equipeDom = null)
+    {
+        $this->equipeDom = $equipeDom;
+
+        return $this;
+    }
+
+    /**
+     * Get equipeDom
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipeDom()
+    {
+        return $this->equipeDom;
+    }
+
+    /**
+     * Set equipeAdv
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeAdv
+     * @return Rencontre
+     */
+    public function setEquipeAdv(\Basket\DatabaseBundle\Entity\Equipe $equipeAdv = null)
+    {
+        $this->equipeAdv = $equipeAdv;
+
+        return $this;
+    }
+
+    /**
+     * Get equipeAdv
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipeAdv()
+    {
+        return $this->equipeAdv;
     }
 }

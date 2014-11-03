@@ -29,24 +29,18 @@ class RencontreDomicile extends Rencontre
     private $convocation;
     
     /**
-     * @var \Equipe
+     * @var \Salle
      * 
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
-     */
-    private $equipeDom;
-    
-    /**
-     * @var \Equipe
-     * 
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
-     */
-    private $equipeAdv;
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Salle")
+     */    
+    private $salle;
     
     /**
      * @var \Personne
      * 
      * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne")
      */
+    
     private $arbitreA;
     
     /**
@@ -77,6 +71,20 @@ class RencontreDomicile extends Rencontre
      */
     private $marqueurC;
     
+    /**
+     * @var \Equipe
+     * 
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
+     */
+    private $equipeDom;
+    
+    /**
+     * @var \Equipe
+     * 
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
+     */
+    private $equipeAdv;
+        
     
     /**
      * Get id
@@ -110,52 +118,7 @@ class RencontreDomicile extends Rencontre
     {
         return $this->convocation;
     }
-
-    /**
-     * Set equipeDom
-     *
-     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeDom
-     * @return RencontreDomicile
-     */
-    public function setEquipeDom(\Basket\DatabaseBundle\Entity\Equipe $equipeDom = null)
-    {
-        $this->equipeDom = $equipeDom;
-
-        return $this;
-    }
-
-    /**
-     * Get equipeDom
-     *
-     * @return \Basket\DatabaseBundle\Entity\Equipe 
-     */
-    public function getEquipeDom()
-    {
-        return $this->equipeDom;
-    }
-
-    /**
-     * Set equipeAdv
-     *
-     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeAdv
-     * @return RencontreDomicile
-     */
-    public function setEquipeAdv(\Basket\DatabaseBundle\Entity\Equipe $equipeAdv = null)
-    {
-        $this->equipeAdv = $equipeAdv;
-
-        return $this;
-    }
-
-    /**
-     * Get equipeAdv
-     *
-     * @return \Basket\DatabaseBundle\Entity\Equipe 
-     */
-    public function getEquipeAdv()
-    {
-        return $this->equipeAdv;
-    }
+   
 
     /**
      * Set arbitreA
@@ -270,5 +233,74 @@ class RencontreDomicile extends Rencontre
     public function getMarqueurB()
     {
         return $this->marqueurB;
+    }
+
+    /**
+     * Set salle
+     *
+     * @param \Basket\DatabaseBundle\Entity\Salle $salle
+     * @return RencontreDomicile
+     */
+    public function setSalle(\Basket\DatabaseBundle\Entity\Salle $salle = null)
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    /**
+     * Get salle
+     *
+     * @return \Basket\DatabaseBundle\Entity\Salle 
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+
+    /**
+     * Set equipeDom
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeDom
+     * @return RencontreDomicile
+     */
+    public function setEquipeDom(\Basket\DatabaseBundle\Entity\Equipe $equipeDom = null)
+    {
+        $this->equipeDom = $equipeDom;
+
+        return $this;
+    }
+
+    /**
+     * Get equipeDom
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipeDom()
+    {
+        return $this->equipeDom;
+    }
+
+    /**
+     * Set equipeAdv
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $equipeAdv
+     * @return RencontreDomicile
+     */
+    public function setEquipeAdv(\Basket\DatabaseBundle\Entity\Equipe $equipeAdv = null)
+    {
+        $this->equipeAdv = $equipeAdv;
+
+        return $this;
+    }
+
+    /**
+     * Get equipeAdv
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getEquipeAdv()
+    {
+        return $this->equipeAdv;
     }
 }
