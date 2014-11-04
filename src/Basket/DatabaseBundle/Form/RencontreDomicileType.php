@@ -18,6 +18,7 @@ class RencontreDomicileType extends AbstractType
         $builder            
             ->add('date')    
             ->add('convocation')
+            ->add('heureMatch')
             ->add('score')            
             ->add('equipeDom','entity',array(
                 'class'=>'BasketDatabaseBundle:Equipe',

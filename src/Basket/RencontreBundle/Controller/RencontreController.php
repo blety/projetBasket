@@ -17,14 +17,13 @@ class RencontreController extends Controller
         
         if ($form->isValid()){
           $em = $this->getDoctrine()->getManager();
-          $rencontreDom->setType(0);
           $em->persist($rencontreDom);
           $em->flush();
         }
         
         $em = $this->getDoctrine()->getEntityManager();
         $allRencontreDom = $em->getRepository('BasketDatabaseBundle:RencontreDomicile')->findAll();
-        return $this->render('BasketRencontreBundle::index.html.twig', array(
+        return $this->render('BasketRencontreBundle::rencontreDom.html.twig', array(
             'form' => $form->createView(),
             'allRencontreDom' => $allRencontreDom,
                 ));

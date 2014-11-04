@@ -64,10 +64,10 @@ class Equipe extends \Basket\DatabaseBundle\Entity\Equipe implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'id', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'annee', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'numEquipe', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'genre', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'joueur', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'categorie');
+            return array('__isInitialized__', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'id', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'annee', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'club', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'genre', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'joueur', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'categorie');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'id', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'annee', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'numEquipe', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'genre', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'joueur', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'categorie');
+        return array('__isInitialized__', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'id', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'annee', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'club', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'genre', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'joueur', '' . "\0" . 'Basket\\DatabaseBundle\\Entity\\Equipe' . "\0" . 'categorie');
     }
 
     /**
@@ -213,28 +213,6 @@ class Equipe extends \Basket\DatabaseBundle\Entity\Equipe implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setNumEquipe($numEquipe)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumEquipe', array($numEquipe));
-
-        return parent::setNumEquipe($numEquipe);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNumEquipe()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumEquipe', array());
-
-        return parent::getNumEquipe();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setGenre($genre)
     {
 
@@ -307,6 +285,28 @@ class Equipe extends \Basket\DatabaseBundle\Entity\Equipe implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategorie', array());
 
         return parent::getCategorie();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setClub($club)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClub', array($club));
+
+        return parent::setClub($club);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getClub()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClub', array());
+
+        return parent::getClub();
     }
 
 }

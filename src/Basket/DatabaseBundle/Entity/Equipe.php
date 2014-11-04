@@ -29,11 +29,11 @@ class Equipe
     private $annee;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="numEquipe", type="integer")
+     * @ORM\Column(name="club", type="string", length=255)
      */
-    private $numEquipe;
+    private $club;
 
     /**
      * @var boolean
@@ -83,30 +83,7 @@ class Equipe
     public function getAnnee()
     {
         return $this->annee;
-    }
-
-    /**
-     * Set numEquipe
-     *
-     * @param integer $numEquipe
-     * @return equipe
-     */
-    public function setNumEquipe($numEquipe)
-    {
-        $this->numEquipe = $numEquipe;
-
-        return $this;
-    }
-
-    /**
-     * Get numEquipe
-     *
-     * @return integer 
-     */
-    public function getNumEquipe()
-    {
-        return $this->numEquipe;
-    }
+    }   
 
     /**
      * Set genre
@@ -192,5 +169,28 @@ class Equipe
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set club
+     *
+     * @param string $club
+     * @return Equipe
+     */
+    public function setClub($club)
+    {
+        $this->club = $club;
+
+        return $this;
+    }
+
+    /**
+     * Get club
+     *
+     * @return string 
+     */
+    public function getClub()
+    {
+        return $this->club;
     }
 }

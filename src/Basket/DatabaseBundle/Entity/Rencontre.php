@@ -25,7 +25,7 @@ class Rencontre
     /**
      * @var string
      *
-     * @ORM\Column(name="score", type="string", length=255)
+     * @ORM\Column(name="score", type="string", length=255, nullable=true)
      * @Assert\Regex("/^[0-9]+-[0-9]+$/") 
      */
     private $score;

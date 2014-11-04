@@ -29,11 +29,11 @@ class Equipe
     private $annee;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="numEquipe", type="integer")
+     * @ORM\Column(name="club", type="string", length=255)
      */
-    private $numEquipe;
+    private $club;
 
     /**
      * @var boolean

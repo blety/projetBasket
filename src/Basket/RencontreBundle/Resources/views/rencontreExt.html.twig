@@ -1,0 +1,73 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+Rencontre à l'extérieur : 
+{{ form(form) }}
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Heure Match</th>
+    <th>Score</th>        
+    <th>Equipe à domicile</th>
+    <th>Equipe adverse</th>    
+  </tr>
+  
+{% for r in allRencontreExt %}
+  <tr>
+  <td>
+    {{ r.date |date("d/m/Y") }}  
+  </td>  
+  <td>
+    {{r.heureMatch |date("h:m")}}
+  </td>
+  <td>
+    {% if r.score is null %}
+      score à renseigner
+      {% else %}
+    {{r.score}}
+    <a href="#" class="btnAddProductVersion" id="addProductVersion" name="addProductVersion" title="add product version"> Add </a>
+
+    {% endif %}
+  </td>    
+  <td>
+    {{r.equipeDom.club}} -
+    {{r.equipeDom.categorie.sigle}}
+  </td>
+  <td>
+    {{r.equipeAdv.club}} - 
+    {{r.equipeAdv.categorie.sigle}}
+  </td> 
+  </tr>
+  {% endfor %}
+  
+</table>
+  {% endblock %}
+  {% block javascripts %}
+  $(document).ready(function() { 
+    // -------------------- if click, lauch pop up ------------
+     
+    $('.btnAddVendor').click(function(){
+        loadPopUpAddVendor();
+        center();
+    });
+     
+    $('.btnAddProduct').click(function(){
+        loadPopUpAddProduct();
+        center();
+    });
+     
+    $('.btnAddProductVersion').click(function(){
+        loadPopUpAddProductVersion();
+        center();
+    });
+     
+    $('.closepopup').click(function(){
+        disable();
+    });
+     
+    $('.background').click(function(){
+        disable();
+    });
+});
+{% endblock %}
