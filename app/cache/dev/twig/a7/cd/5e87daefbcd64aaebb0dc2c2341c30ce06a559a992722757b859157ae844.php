@@ -13,6 +13,7 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
             'javascripts' => array($this, 'block_javascripts'),
+            'document_ready' => array($this, 'block_document_ready'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -28,29 +29,40 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        
         ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 8
+        echo "        
+        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css\">
+        
         <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
-        <script type=\"text/javascript\">
+        <script type=\"text/javascript\">          
           ";
-        // line 12
+        // line 15
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 13
-        echo "         </script>
+        // line 16
+        echo "            \$(document).ready(function() {
+                    ";
+        // line 17
+        $this->displayBlock('document_ready', $context, $blocks);
+        // line 18
+        echo "                  });
+         </script>
     </head>
     <body>
+      <div class=\"container\">
         ";
-        // line 16
+        // line 23
         $this->displayBlock('body', $context, $blocks);
-        // line 17
-        echo "        
+        // line 24
+        echo "      </div>
     </body>
 </html>
 ";
@@ -62,19 +74,24 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         echo "Basket Project ";
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 12
+    // line 15
     public function block_javascripts($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 16
+    // line 17
+    public function block_document_ready($context, array $blocks = array())
+    {
+    }
+
+    // line 23
     public function block_body($context, array $blocks = array())
     {
         echo " ";
@@ -92,6 +109,6 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
 
     public function getDebugInfo()
     {
-        return array (  78 => 16,  72 => 12,  66 => 6,  60 => 5,  53 => 17,  51 => 16,  46 => 13,  44 => 12,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  95 => 23,  90 => 17,  84 => 15,  78 => 7,  72 => 5,  65 => 24,  63 => 23,  56 => 18,  54 => 17,  51 => 16,  49 => 15,  40 => 9,  37 => 8,  35 => 7,  30 => 5,  24 => 1,);
     }
 }

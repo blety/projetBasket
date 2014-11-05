@@ -3,17 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Basket Project {% endblock %}</title>
+        
         {% block stylesheets %} {% endblock %}
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
+        <script type="text/javascript">          
           {% block javascripts %} {% endblock %}
+            $(document).ready(function() {
+                    {% block document_ready %}{% endblock %}
+                  });
          </script>
     </head>
     <body>
+      <div class="container">
         {% block body %} {% endblock %}
-        
+      </div>
     </body>
 </html>
