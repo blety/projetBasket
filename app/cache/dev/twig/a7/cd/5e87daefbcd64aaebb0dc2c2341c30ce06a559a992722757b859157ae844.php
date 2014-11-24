@@ -43,18 +43,20 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
     <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css\">
     <link rel=\"stylesheet\" href=\"/ProjectBasket/web/css/flat-ui.css\">
     <link rel=\"stylesheet\" href=\"/ProjectBasket/web/css/flat-ui.min.css\">
+    <link rel=\"stylesheet\" href=\"/ProjectBasket/web/css/bootstrap-datetimepicker.min.css\">
+    <script src=\"/ProjectBasket/web/js/bootstrap-datetimepicker.min.js\"></script>
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
     <script src=\"/ProjectBasket/web/js/flat.min.js\"></script>
     <script type=\"text/javascript\">
       ";
-        // line 17
+        // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 18
+        // line 20
         echo "      \$(document).ready(function () {
                     ";
-        // line 19
+        // line 21
         $this->displayBlock('document_ready', $context, $blocks);
-        // line 20
+        // line 22
         echo "                  });
     </script>
   </head>
@@ -72,7 +74,7 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         </div>
         <div id =\"navbar\" class=\"navbar-collapse collapse\">
           <ul class=\"nav navbar-nav\">
-            <li class=\"active\"><a href=\"/ProjectBasket/web/app_dev.php/player/index\">Player Index</a></li>
+            <li><a href=\"/ProjectBasket/web/app_dev.php/player/index\">Player Index</a></li>
             <li><a href=\"/ProjectBasket/web/app_dev.php/entrainement/index\">Entrainement Index</a></li>
             <!--<li><a href=\"/ProjectBasket/web/app_dev.php/recontreDom/index\">Rencontres</a></li>-->
             <li class=\"dropdown\">
@@ -100,9 +102,9 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
     </nav>
     <div class=\"container\" style=\"margin-top: 100px\">
       ";
-        // line 64
+        // line 66
         $this->displayBlock('body', $context, $blocks);
-        // line 65
+        // line 67
         echo "    </div>
     <footer class=\"container\" style=\"text-align: center\">
       <p>© ProjectBasket 2014</p>
@@ -124,18 +126,18 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         echo " ";
     }
 
-    // line 17
+    // line 19
     public function block_javascripts($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 19
+    // line 21
     public function block_document_ready($context, array $blocks = array())
     {
     }
 
-    // line 64
+    // line 66
     public function block_body($context, array $blocks = array())
     {
         echo " ";
@@ -153,6 +155,6 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
 
     public function getDebugInfo()
     {
-        return array (  139 => 64,  134 => 19,  122 => 7,  116 => 5,  106 => 65,  104 => 64,  58 => 20,  56 => 19,  53 => 18,  35 => 7,  30 => 5,  24 => 1,  245 => 140,  235 => 136,  229 => 133,  223 => 130,  217 => 127,  211 => 124,  205 => 121,  199 => 118,  193 => 115,  187 => 112,  183 => 110,  179 => 109,  156 => 89,  146 => 82,  141 => 80,  128 => 17,  119 => 64,  112 => 60,  105 => 56,  96 => 50,  89 => 46,  80 => 40,  73 => 36,  66 => 32,  59 => 28,  51 => 17,  40 => 9,  37 => 8,  29 => 3,);
+        return array (  141 => 66,  136 => 21,  130 => 19,  124 => 7,  118 => 5,  108 => 67,  106 => 66,  60 => 22,  58 => 21,  55 => 20,  53 => 19,  40 => 9,  37 => 8,  35 => 7,  30 => 5,  24 => 1,);
     }
 }

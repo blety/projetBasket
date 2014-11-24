@@ -1,53 +1,122 @@
 {% extends "::layout.html.twig" %}
+
 {% block body %}
-Tous les entrainements
 
-{{ form(form) }}
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row centered-form">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Tous les entrainements</strong> <small> Formulaire pour programmer un entrainement !!! </small></h3>
+          </div>
+          <div class="panel-body">
+            {{ form_start(form) }}
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="jour">Jour</label>
+                  {{ form_widget(form.jour, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="debut">Début</label>
+                  {{ form_widget(form.debut, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="fin">Fin</label>
+                  {{ form_widget(form.fin, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="obligatoire">Obligatoire</label>
+                  {{ form_widget(form.obligatoire, { 'attr': {'class': 'checkbox'} }) }}
+                </div>      
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="salle">Salle</label>
+                  {{ form_widget(form.salle, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="entraineur">Entraineur</label>
+                  {{ form_widget(form.entraineur, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="equipe">Equipe</label>
+                  {{ form_widget(form.equipe, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+              <div class="row centered-form">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                  {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
+                  <!-- Generate new token -->
+                  {{ form_widget(form._token) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <input TYPE="reset" class="btn btn-danger btn-lg btn-block" NAME="nom" VALUE="Annuler">
+                </div>
+              </div>
+            </form>
+            {{ form_end(form) }}
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
 
-<table class="table table-hover table-bordered">
-  <tr class="info">
-    <th>Date</th>
-    <th>Début</th>
-    <th>Fin</th>
-    <th>Obligatoire</th>
-    <th>Salle</th>
-    <th>Entraineur</th>
-    <th>Equipe</th>   
-  </tr>
-  
-{% for e in allEntrainement %}
-  <tr class="success">
-  <td>
-  {{e.jour|date("d/m/Y")}}
-  </td>
-  <td>
-    {{e.debut | date("d/m/Y")}}
-  </td>
-  <td>
-    {{e.fin | date("d/m/Y")}}
-  </td>
-  <td>
-    {{ e.obligatoire }}
-  </td>
-  <td>
-    {{e.salle.nom}}
-  </td>
-  <td>
-    {{e.entraineur.nom}}
-  </td>
-  <td>
-    {{e.equipe.categorie.sigle}}
-  </td>  
-  </tr>
-  {% endfor %}
-  
-</table>
-  
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
+
+    <table class="table table-hover table-bordered">
+      <tr class="info">
+        <th>Date</th>
+        <th>Début</th>
+        <th>Fin</th>
+        <th>Obligatoire</th>
+        <th>Salle</th>
+        <th>Entraineur</th>
+        <th>Equipe</th>   
+      </tr>
+
+      {% for e in allEntrainement %}
+        <tr class="success">
+          <td>
+            {{e.jour|date("d/m/Y")}}
+          </td>
+          <td>
+            {{e.debut | date("h:m")}}
+          </td>
+          <td>
+            {{e.fin | date("h:m")}}
+          </td>
+          <td>
+            {{ e.obligatoire }}
+          </td>
+          <td>
+            {{e.salle.nom}}
+          </td>
+          <td>
+            {{e.entraineur.nom}}
+          </td>
+          <td>
+            {{e.equipe.categorie.sigle}}
+          </td>  
+        </tr>
+      {% endfor %}
+
+    </table>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/ProjectBasket/web/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/ProjectBasket/web/js/flat.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker4').datetimepicker({
+          pickTime: false
+        });
+      });
+    </script>
   {% endblock %}

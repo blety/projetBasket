@@ -1,66 +1,146 @@
 {% extends '::layout.html.twig' %}
 
 {% block body %}
-Rencontre à domicile : 
-{{ form(form) }}
 
-<table class="table table-hover table-bordered">
-  <tr class="info">
-    <th>Date</th>    
-    <th>Score</th>
-    <th>Divers</th>    
-    <th>Convocation</th>
-    <th>Equipe à domicile</th>
-    <th>Equipe adverse</th>
-    <th>Arbitre A</th>
-    <th>Arbitre B</th>
-    <th>Marqueur A</th>
-    <th>Marqueur B</th>
-    <th>Marqueur C</th>
-  </tr>
-  
-{% for r in allRencontreDom %}
-  <tr>
-  <td class="success">
-    {{ r.date |date("d/m/Y") }}  
-  </td>  
-  <td>
-    {{r.score}}
-  </td>
-  <td>
-    {{r.divers}}
-  </td>
-  <td>
-    {{r.convocation |date("d/m/Y")}}
-  </td>
-  <td>
-    {{r.equipeDom.categorie.sigle}}
-  </td>
-  <td>
-    {{r.equipeAdv.categorie.sigle}}
-  </td>
-  <td>
-    {{r.arbitreA}}
-  </td>
-  <td>
-    {{r.arbitreB}}
-  </td>
-  <td>
-    {{r.marqueurA}}
-  </td>
-  <td>
-    {{r.marqueurB}}
-    </td>
-    <td>
-      {{r.marqueurC}}
-    </td>
-  </tr>
-  {% endfor %}
-  
-</table>
-  
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row centered-form">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Rencontre à domicile</strong> <small> Formulaire pour enregistrer une rencontre à domicile !!! </small></h3>
+          </div>
+          <div class="panel-body">
+            {{ form_start(form) }}
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="date">Date</label>
+                  {{ form_widget(form.date, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="convo">Convocation</label>
+                  {{ form_widget(form.convocation, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="HM">Heure Match</label>
+                  {{ form_widget(form.heureMatch, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="score">Score</label>
+                  {{ form_widget(form.score, { 'attr': {'class': 'form-control'} }) }}
+                </div>      
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="equipeDom">Equipe Domicile</label>
+                  {{ form_widget(form.equipeDom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="equipeAdv">Equipe Adverse</label>
+                  {{ form_widget(form.equipeAdv, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="arbitreA">Arbitre A</label>
+                  {{ form_widget(form.arbitreA, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="arbitreB">Arbitre B</label>
+                  {{ form_widget(form.arbitreB, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="marqueurA">Marqueur A</label>
+                  {{ form_widget(form.marqueurA, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="marqueurB">Marqueur B</label>
+                  {{ form_widget(form.marqueurB, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="marqueurC">Marqueur C</label>
+                  {{ form_widget(form.marqueurC, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="divers">Divers</label>
+                  {{ form_widget(form.divers, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+              <div class="row centered-form">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                  {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
+                  <!-- Generate new token -->
+                  {{ form_widget(form._token) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <input TYPE="reset" class="btn btn-danger btn-lg btn-block" NAME="nom" VALUE="Annuler">
+                </div>
+              </div>
+            </form>
+            {{ form_end(form) }}
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+    <table class="table table-hover table-bordered">
+      <tr class="info">
+        <th>Date</th>    
+        <th>Score</th>
+        <th>Divers</th>    
+        <th>Convocation</th>
+        <th>Equipe à domicile</th>
+        <th>Equipe adverse</th>
+        <th>Arbitre A</th>
+        <th>Arbitre B</th>
+        <th>Marqueur A</th>
+        <th>Marqueur B</th>
+        <th>Marqueur C</th>
+      </tr>
+
+      {% for r in allRencontreDom %}
+        <tr>
+          <td class="success">
+            {{ r.date |date("d/m/Y") }}  
+          </td>  
+          <td>
+            {{r.score}}
+          </td>
+          <td>
+            {{r.divers}}
+          </td>
+          <td>
+            {{r.convocation |date("d/m/Y")}}
+          </td>
+          <td>
+            {{r.equipeDom.categorie.sigle}}
+          </td>
+          <td>
+            {{r.equipeAdv.categorie.sigle}}
+          </td>
+          <td>
+            {{r.arbitreA}}
+          </td>
+          <td>
+            {{r.arbitreB}}
+          </td>
+          <td>
+            {{r.marqueurA}}
+          </td>
+          <td>
+            {{r.marqueurB}}
+          </td>
+          <td>
+            {{r.marqueurC}}
+          </td>
+        </tr>
+      {% endfor %}
+
+    </table>
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

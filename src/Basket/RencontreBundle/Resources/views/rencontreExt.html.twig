@@ -1,49 +1,106 @@
 {% extends "::layout.html.twig" %}
 
 {% block body %}
-Rencontre à l'extérieur : 
-{{ form(form) }}
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row centered-form">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Rencontre à l'éxtérieur</strong> <small> Formulaire pour enregistrer une rencontre à l'extérieur !!! </small></h3>
+          </div>
+          <div class="panel-body">
+            {{ form_start(form) }}
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="date">Date</label>
+                  {{ form_widget(form.date, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="heureDepart">Heure Départ</label>
+                  {{ form_widget(form.heureDepart, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="HM">Heure Match</label>
+                  {{ form_widget(form.heureMatch, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="score">Score</label>
+                  {{ form_widget(form.score, { 'attr': {'class': 'form-control'} }) }}
+                </div>      
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="transport">Transport</label>
+                  {{ form_widget(form.transport, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="equipeDom">Equipe Domicile</label>
+                  {{ form_widget(form.equipeDom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <label for="equipeAdv">Equipe Adverse</label>
+                  {{ form_widget(form.equipeAdv, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+              <div class="row centered-form">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                  {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
+                  <!-- Generate new token -->
+                  {{ form_widget(form._token) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <input TYPE="reset" class="btn btn-danger btn-lg btn-block" NAME="nom" VALUE="Annuler">
+                </div>
+              </div>
+            </form>
+            {{ form_end(form) }}
+          </div>
+        </div>
+      </div>
+    </div> <!-- /container -->
 
-<table class="table table-hover table-bordered">
-  <tr class="info">
-    <th>Date</th>
-    <th>Heure Match</th>
-    <th>Score</th>        
-    <th>Equipe à domicile</th>
-    <th>Equipe adverse</th>    
-  </tr>
-  
-{% for r in allRencontreExt %}
-  <tr class="success">
-  <td>
-    {{ r.date |date("d/m/Y") }}  
-  </td>  
-  <td>
-    {{r.heureMatch |date("h:m")}}
-  </td>
-  <td>
-    {% if r.score is null %}
-      score à renseigner
-      {% else %}
-    {{r.score}}
-    <a href="#" class="btnAddProductVersion" id="addProductVersion" name="addProductVersion" title="add product version"> Add </a>
+    <table class="table table-hover table-bordered">
+      <tr class="info">
+        <th>Date</th>
+        <th>Heure Match</th>
+        <th>Score</th>        
+        <th>Equipe à domicile</th>
+        <th>Equipe adverse</th>    
+      </tr>
 
-    {% endif %}
-  </td>    
-  <td>
-    {{r.equipeDom.club}} -
-    {{r.equipeDom.categorie.sigle}}
-  </td>
-  <td>
-    {{r.equipeAdv.club}} - 
-    {{r.equipeAdv.categorie.sigle}}
-  </td> 
-  </tr>
-  {% endfor %}
-  
-</table>
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
+      {% for r in allRencontreExt %}
+        <tr class="success">
+          <td>
+            {{ r.date |date("d/m/Y") }}  
+          </td>  
+          <td>
+            {{r.heureMatch |date("h:m")}}
+          </td>
+          <td>
+            {% if r.score is null %}
+              score à renseigner
+            {% else %}
+              {{r.score}}
+              <a href="#" class="btnAddProductVersion" id="addProductVersion" name="addProductVersion" title="add product version"> Add </a>
+
+            {% endif %}
+          </td>    
+          <td>
+            {{r.equipeDom.club}} -
+            {{r.equipeDom.categorie.sigle}}
+          </td>
+          <td>
+            {{r.equipeAdv.club}} - 
+            {{r.equipeAdv.categorie.sigle}}
+          </td> 
+        </tr>
+      {% endfor %}
+
+    </table>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -51,30 +108,30 @@ Rencontre à l'extérieur :
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   {% endblock %}
   {% block javascripts %}
-  $(document).ready(function() { 
-    // -------------------- if click, lauch pop up ------------
-     
-    $('.btnAddVendor').click(function(){
-        loadPopUpAddVendor();
-        center();
-    });
-     
-    $('.btnAddProduct').click(function(){
-        loadPopUpAddProduct();
-        center();
-    });
-     
-    $('.btnAddProductVersion').click(function(){
-        loadPopUpAddProductVersion();
-        center();
-    });
-     
-    $('.closepopup').click(function(){
-        disable();
-    });
-     
-    $('.background').click(function(){
-        disable();
-    });
-});
-{% endblock %}
+    $(document).ready(function() { 
+        // -------------------- if click, lauch pop up ------------
+         
+        $('.btnAddVendor').click(function(){
+            loadPopUpAddVendor();
+            center();
+        });
+         
+        $('.btnAddProduct').click(function(){
+            loadPopUpAddProduct();
+            center();
+        });
+         
+        $('.btnAddProductVersion').click(function(){
+            loadPopUpAddProductVersion();
+            center();
+        });
+         
+        $('.closepopup').click(function(){
+            disable();
+        });
+         
+        $('.background').click(function(){
+            disable();
+        });
+    });
+  {% endblock %}
