@@ -1,11 +1,11 @@
-{% extends "::layout.html.twig" %}
+{% extends '::layout.html.twig' %}
 
 {% block body %}
 Rencontre à domicile : 
 {{ form(form) }}
 
-<table>
-  <tr>
+<table class="table table-hover table-bordered">
+  <tr class="info">
     <th>Date</th>    
     <th>Score</th>
     <th>Divers</th>    
@@ -21,7 +21,7 @@ Rencontre à domicile :
   
 {% for r in allRencontreDom %}
   <tr>
-  <td>
+  <td class="success">
     {{ r.date |date("d/m/Y") }}  
   </td>  
   <td>
@@ -59,4 +59,11 @@ Rencontre à domicile :
   
 </table>
   
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   {% endblock %}

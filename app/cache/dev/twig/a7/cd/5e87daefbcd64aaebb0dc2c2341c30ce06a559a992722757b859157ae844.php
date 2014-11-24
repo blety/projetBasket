@@ -23,47 +23,91 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         // line 1
         echo "<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset=\"UTF-8\" />
-        <title>";
+  <head>
+    <meta charset=\"UTF-8\" />
+    <title>";
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        
-        ";
+
+    ";
         // line 7
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 8
-        echo "        
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        echo "
+    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
-        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
-        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css\">
-        
-        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
-        <script type=\"text/javascript\">          
-          ";
-        // line 15
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 16
-        echo "            \$(document).ready(function() {
-                    ";
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css\">
+    <link rel=\"stylesheet\" href=\"/ProjectBasket/web/css/flat-ui.css\">
+    <link rel=\"stylesheet\" href=\"/ProjectBasket/web/css/flat-ui.min.css\">
+    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
+    <script src=\"/ProjectBasket/web/js/flat.min.js\"></script>
+    <script type=\"text/javascript\">
+      ";
         // line 17
-        $this->displayBlock('document_ready', $context, $blocks);
+        $this->displayBlock('javascripts', $context, $blocks);
         // line 18
+        echo "      \$(document).ready(function () {
+                    ";
+        // line 19
+        $this->displayBlock('document_ready', $context, $blocks);
+        // line 20
         echo "                  });
-         </script>
-    </head>
-    <body>
+    </script>
+  </head>
+  <body>
+    <nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">
       <div class=\"container\">
-        ";
-        // line 23
+        <div class=\"navbar-header\">
+          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">
+            <span class=\"sr-only\">Toggle navigation</span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+          </button>
+          <a class=\"navbar-brand\" href=\"#\">Project Basket </a>
+        </div>
+        <div id =\"navbar\" class=\"navbar-collapse collapse\">
+          <ul class=\"nav navbar-nav\">
+            <li class=\"active\"><a href=\"/ProjectBasket/web/app_dev.php/player/index\">Player Index</a></li>
+            <li><a href=\"/ProjectBasket/web/app_dev.php/entrainement/index\">Entrainement Index</a></li>
+            <!--<li><a href=\"/ProjectBasket/web/app_dev.php/recontreDom/index\">Rencontres</a></li>-->
+            <li class=\"dropdown\">
+              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Rencontres <span class=\"caret\"></span></a>
+              <ul class=\"dropdown-menu\" role=\"menu\">
+                <li><a href=\"/ProjectBasket/web/app_dev.php/rencontreDom/index\">Rencontre Domicile</a></li>
+                <li class=\"divider\"></li>
+                <li class=\"dropdown-header\">Nav header</li>
+                <li><a href=\"/ProjectBasket/web/app_dev.php/rencontreExt/index\">Rencontre Extérieur</a></li>
+                <!--<li><a href=\"#\">One more separated link</a></li>-->
+              </ul>
+            </li>
+          </ul>
+          <form class=\"navbar-form navbar-right\" style=\"padding-left: 0px\" role=\"form\">
+            <div class=\"form-group\">
+              <input type=\"text\" placeholder=\"Email\" class=\"form-control\">
+            </div>
+            <div class=\"form-group\">
+              <input type=\"password\" placeholder=\"Password\" class=\"form-control\">
+            </div>
+            <button type=\"submit\" class=\"btn btn-success\">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <div class=\"container\" style=\"margin-top: 100px\">
+      ";
+        // line 64
         $this->displayBlock('body', $context, $blocks);
-        // line 24
-        echo "      </div>
-    </body>
+        // line 65
+        echo "    </div>
+    <footer class=\"container\" style=\"text-align: center\">
+      <p>© ProjectBasket 2014</p>
+    </footer>
+  </body>
 </html>
 ";
     }
@@ -80,18 +124,18 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
         echo " ";
     }
 
-    // line 15
+    // line 17
     public function block_javascripts($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 17
+    // line 19
     public function block_document_ready($context, array $blocks = array())
     {
     }
 
-    // line 23
+    // line 64
     public function block_body($context, array $blocks = array())
     {
         echo " ";
@@ -109,6 +153,6 @@ class __TwigTemplate_a7cd5e87daefbcd64aaebb0dc2c2341c30ce06a559a992722757b859157
 
     public function getDebugInfo()
     {
-        return array (  95 => 23,  90 => 17,  84 => 15,  78 => 7,  72 => 5,  65 => 24,  63 => 23,  56 => 18,  54 => 17,  51 => 16,  49 => 15,  40 => 9,  37 => 8,  35 => 7,  30 => 5,  24 => 1,);
+        return array (  139 => 64,  134 => 19,  122 => 7,  116 => 5,  106 => 65,  104 => 64,  58 => 20,  56 => 19,  53 => 18,  35 => 7,  30 => 5,  24 => 1,  245 => 140,  235 => 136,  229 => 133,  223 => 130,  217 => 127,  211 => 124,  205 => 121,  199 => 118,  193 => 115,  187 => 112,  183 => 110,  179 => 109,  156 => 89,  146 => 82,  141 => 80,  128 => 17,  119 => 64,  112 => 60,  105 => 56,  96 => 50,  89 => 46,  80 => 40,  73 => 36,  66 => 32,  59 => 28,  51 => 17,  40 => 9,  37 => 8,  29 => 3,);
     }
 }
