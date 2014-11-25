@@ -251,6 +251,8 @@ class __TwigTemplate_0fbc0d4058df424a41a397a8fda1297c87dd3cffe954e14072387a67344
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
+    <script src=\"/ProjectBasket/web/js/bootstrap-datetimepicker.min.js\"></script>
+    <script src=\"/ProjectBasket/web/js/flat.min.js\"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src=\"../../assets/js/ie10-viewport-bug-workaround.js\"></script>
   ";
