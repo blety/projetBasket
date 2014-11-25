@@ -57,13 +57,52 @@ class Personne
      * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $codepostal;
-
+    
+    /**
+     * @var string
+     * @ORM\Column(name="ville", type="string", length=255)
+     */
+    private $ville;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(
+     *     message = "'{{ value }}' n'est pas un email valide.",
+     *     checkMX = true
+     * )
+     */    
+    private $email;
+    
+    /**
+     * @var datetime
+     * @ORM\Column(name="birthday", type="datetime")
+     */
+    private $birthday;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="adresseParents", type="string", length=255)
      */
     private $adresseParents;
+    
+    /**
+     * @var string
+     * @Assert\Regex("/^0[1-678]([-. ]?[0-9]{2}){4}$/")
+     * @ORM\Column(name="telParents", type="string", length=255, nullable=true)
+     */
+    private $telParents;
+    
+     /**
+     * @var string
+     * @ORM\Column(name="emailParents", type="string", length=255)
+     * @Assert\Email(
+     *     message = "'{{ value }}' n'est pas un email valide.",
+     *     checkMX = true
+     * )
+     */    
+    private $emailParents;
 
     /**
      * @var string
@@ -74,7 +113,7 @@ class Personne
 
     /**
      * @var string
-     * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/")
+     * @Assert\Regex("/^0[1-678]([-. ]?[0-9]{2}){4}$/")
      * @ORM\Column(name="tel", type="string", length=255)
      */
     private $tel;
@@ -89,15 +128,38 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text", nullable=true)
+     * @ORM\Column(name="divers", type="text", nullable=true)
      */
     private $divers;
     
     /**
+     * @var boolean
+     * @ORM\Column(name="inscrit", type="boolean")
+     */
+    private $inscrit;
+    
+    /**
+     * @var boolean
+     * @ORM\Column(name="licensePayee", type="boolean")
+     */
+    private $licensePayee;
+    
+    /**
+     * @var boolean
+     * @ORM\Column(name="licenseRecue", type="boolean")
+     */
+    private $licenseRecue;
+        
+    /**
      * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\RefPersonne", inversedBy="type")
      */
     private $refPersonne;
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", inversedBy="nom")
+     */
+    private $refEquipe;
+    
     /**
      * Get id
      *
@@ -365,5 +427,212 @@ class Personne
     public function getCodepostal()
     {
         return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     * @return Personne
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string 
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Personne
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param \DateTime $birthday
+     * @return Personne
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+    
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return \DateTime 
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set refEquipe
+     *
+     * @param \Basket\DatabaseBundle\Entity\Equipe $refEquipe
+     * @return Personne
+     */
+    public function setRefEquipe(\Basket\DatabaseBundle\Entity\Equipe $refEquipe = null)
+    {
+        $this->refEquipe = $refEquipe;
+    
+        return $this;
+    }
+
+    /**
+     * Get refEquipe
+     *
+     * @return \Basket\DatabaseBundle\Entity\Equipe 
+     */
+    public function getRefEquipe()
+    {
+        return $this->refEquipe;
+    }
+
+    /**
+     * Set telParents
+     *
+     * @param string $telParents
+     * @return Personne
+     */
+    public function setTelParents($telParents)
+    {
+        $this->telParents = $telParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get telParents
+     *
+     * @return string 
+     */
+    public function getTelParents()
+    {
+        return $this->telParents;
+    }
+
+    /**
+     * Set emailParents
+     *
+     * @param string $emailParents
+     * @return Personne
+     */
+    public function setEmailParents($emailParents)
+    {
+        $this->emailParents = $emailParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailParents
+     *
+     * @return string 
+     */
+    public function getEmailParents()
+    {
+        return $this->emailParents;
+    }
+
+    /**
+     * Set inscrit
+     *
+     * @param boolean $inscrit
+     * @return Personne
+     */
+    public function setInscrit($inscrit)
+    {
+        $this->inscrit = $inscrit;
+    
+        return $this;
+    }
+
+    /**
+     * Get inscrit
+     *
+     * @return boolean 
+     */
+    public function getInscrit()
+    {
+        return $this->inscrit;
+    }
+
+    /**
+     * Set licensePayee
+     *
+     * @param boolean $licensePayee
+     * @return Personne
+     */
+    public function setLicensePayee($licensePayee)
+    {
+        $this->licensePayee = $licensePayee;
+    
+        return $this;
+    }
+
+    /**
+     * Get licensePayee
+     *
+     * @return boolean 
+     */
+    public function getLicensePayee()
+    {
+        return $this->licensePayee;
+    }
+
+    /**
+     * Set licenseRecue
+     *
+     * @param boolean $licenseRecue
+     * @return Personne
+     */
+    public function setLicenseRecue($licenseRecue)
+    {
+        $this->licenseRecue = $licenseRecue;
+    
+        return $this;
+    }
+
+    /**
+     * Get licenseRecue
+     *
+     * @return boolean 
+     */
+    public function getLicenseRecue()
+    {
+        return $this->licenseRecue;
     }
 }

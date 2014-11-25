@@ -24,17 +24,29 @@ class Equipe
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="annee", type="datetime")
+     * @ORM\Column(name="annee", type="datetime", nullable=true)
      */
     private $annee;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="club", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    private $club;
-
+    private $nom;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="sigle", type="string", length=255)
+     */
+    private $sigle;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="niveau", type="string", length=255, nullable=true)
+     */
+    private $niveau;
+        
     /**
      * @var boolean
      *
@@ -51,6 +63,11 @@ class Equipe
      * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Categorie", inversedBy="categorie")
      */
     private $categorie;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     */
+    private $responsableEquipe;
       
     /**
      * Get id
@@ -171,26 +188,96 @@ class Equipe
         return $this->categorie;
     }
 
+
     /**
-     * Set club
+     * Set nom
      *
-     * @param string $club
+     * @param string $nom
      * @return Equipe
      */
-    public function setClub($club)
+    public function setNom($nom)
     {
-        $this->club = $club;
-
+        $this->nom = $nom;
+    
         return $this;
     }
 
     /**
-     * Get club
+     * Get nom
      *
      * @return string 
      */
-    public function getClub()
+    public function getNom()
     {
-        return $this->club;
+        return $this->nom;
+    }
+
+    /**
+     * Set sigle
+     *
+     * @param string $sigle
+     * @return Equipe
+     */
+    public function setSigle($sigle)
+    {
+        $this->sigle = $sigle;
+    
+        return $this;
+    }
+
+    /**
+     * Get sigle
+     *
+     * @return string 
+     */
+    public function getSigle()
+    {
+        return $this->sigle;
+    }
+
+    /**
+     * Set niveau
+     *
+     * @param string $niveau
+     * @return Equipe
+     */
+    public function setNiveau($niveau)
+    {
+        $this->niveau = $niveau;
+    
+        return $this;
+    }
+
+    /**
+     * Get niveau
+     *
+     * @return string 
+     */
+    public function getNiveau()
+    {
+        return $this->niveau;
+    }
+
+    /**
+     * Set responsableEquipe
+     *
+     * @param \Basket\DatabaseBundle\Entity\Personne $responsableEquipe
+     * @return Equipe
+     */
+    public function setResponsableEquipe(\Basket\DatabaseBundle\Entity\Personne $responsableEquipe = null)
+    {
+        $this->responsableEquipe = $responsableEquipe;
+    
+        return $this;
+    }
+
+    /**
+     * Get responsableEquipe
+     *
+     * @return \Basket\DatabaseBundle\Entity\Personne 
+     */
+    public function getResponsableEquipe()
+    {
+        return $this->responsableEquipe;
     }
 }
