@@ -50,6 +50,13 @@ class Personne
      * @ORM\Column(name="adresse", type="string", length=255)
      */
     private $adresse;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="codepostal", type="string", length=10)
+     * @Assert\Regex("/^[0-9]{5}$/")
+     */
+    private $codepostal;
 
     /**
      * @var string
@@ -335,5 +342,28 @@ class Personne
     
     public function __toString(){
       return $this->nom;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     * @return Personne
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+    
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string 
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
     }
 }
