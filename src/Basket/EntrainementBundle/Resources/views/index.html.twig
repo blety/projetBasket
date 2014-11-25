@@ -2,7 +2,6 @@
 
 {% block body %}
 
-  <div class="container">
     <!-- Example row of columns -->
     <div class="row centered-form">
       <div class="col-md-12">
@@ -63,8 +62,8 @@
     </div> <!-- /container -->
 
 
-    <table class="table table-hover table-bordered">
-      <tr class="info">
+    <table class="table table-hover table-bordered table-striped">
+      <tr>
         <th>Date</th>
         <th>Début</th>
         <th>Fin</th>
@@ -75,7 +74,7 @@
       </tr>
 
       {% for e in allEntrainement %}
-        <tr class="success">
+        <tr>
           <td>
             {{e.jour|date("d/m/Y")}}
           </td>

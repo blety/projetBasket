@@ -122,8 +122,8 @@ class __TwigTemplate_a74fa333085a5256043d09f8df5dd3d29efc7fc2b6c86de98939c7c8967
       </div>
     </div> <!-- /container -->
 
-    <table class=\"table table-hover table-bordered\">
-      <tr class=\"info\">
+    <table class=\"table table-hover table-bordered table-striped\">
+      <tr>
         <th>Date</th>
         <th>Heure Match</th>
         <th>Score</th>        
@@ -137,7 +137,7 @@ class __TwigTemplate_a74fa333085a5256043d09f8df5dd3d29efc7fc2b6c86de98939c7c8967
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "allRencontreExt"));
         foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
             // line 74
-            echo "        <tr class=\"success\">
+            echo "        <tr>
           <td>
             ";
             // line 76

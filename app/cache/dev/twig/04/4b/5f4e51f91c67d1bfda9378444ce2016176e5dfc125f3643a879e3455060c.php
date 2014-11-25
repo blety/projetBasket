@@ -35,7 +35,7 @@ class __TwigTemplate_044b5f4e51f91c67d1bfda9378444ce2016176e5dfc125f3643a879e345
       <div class=\"col-md-12\">
         <div class=\"panel panel-default\">
           <div class=\"panel-heading\">
-            <h3 class=\"panel-title\"><strong>Rencontre à domicile</strong> <small> Formulaire pour enregistrer une rencontre à domiciel !!! </small></h3>
+            <h3 class=\"panel-title\"><strong>Rencontre à domicile</strong> <small> Formulaire pour enregistrer une rencontre à domicile !!! </small></h3>
           </div>
           <div class=\"panel-body\">
             ";
@@ -159,8 +159,8 @@ class __TwigTemplate_044b5f4e51f91c67d1bfda9378444ce2016176e5dfc125f3643a879e345
       </div>
     </div> <!-- /container -->
 
-    <table class=\"table table-hover table-bordered\">
-      <tr class=\"info\">
+    <table class=\"table table-hover table-bordered table-striped\">
+      <tr>
         <th>Date</th>    
         <th>Score</th>
         <th>Divers</th>    
@@ -181,69 +181,79 @@ class __TwigTemplate_044b5f4e51f91c67d1bfda9378444ce2016176e5dfc125f3643a879e345
         foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
             // line 103
             echo "        <tr>
-          <td class=\"success\">
+          <td>
             ";
             // line 105
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "date"), "d/m/Y"), "html", null, true);
             echo "  
           </td>  
-          <td>
+          <td nowrap>
             ";
             // line 108
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "score"), "html", null, true);
-            echo "
-          </td>
+            if ((null === $this->getAttribute($this->getContext($context, "r"), "score"))) {
+                // line 109
+                echo "              <a href=\"#myModal\" class=\"btnAddProductVersion\" id=\"addProductVersion\" name=\"addProductVersion\" title=\"add product version\" data-toggle=\"modal\" data-target=\"#myModal\"> Score à renseigner </a>
+            ";
+            } else {
+                // line 111
+                echo "              ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "score"), "html", null, true);
+                echo "
+            ";
+            }
+            // line 113
+            echo "          </td> 
           <td>
             ";
-            // line 111
+            // line 115
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "divers"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 114
+            // line 118
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "convocation"), "d/m/Y"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 117
+            // line 121
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "r"), "equipeDom"), "categorie"), "sigle"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 120
+            // line 124
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "r"), "equipeAdv"), "categorie"), "sigle"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 123
+            // line 127
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "arbitreA"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 126
+            // line 130
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "arbitreB"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 129
+            // line 133
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurA"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 132
+            // line 136
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurB"), "html", null, true);
             echo "
           </td>
           <td>
             ";
-            // line 135
+            // line 139
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "r"), "marqueurC"), "html", null, true);
             echo "
           </td>
@@ -253,15 +263,36 @@ class __TwigTemplate_044b5f4e51f91c67d1bfda9378444ce2016176e5dfc125f3643a879e345
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 139
+        // line 143
         echo "
     </table>
+      
+      <!-- Modal -->
+<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\"><span aria-hidden=\"true\">&times;</span><span class=\"sr-only\">Close</span></button>
+        <h4 class=\"modal-title\" id=\"myModalLabel\">Modal title</h4>
+      </div>
+      <div class=\"modal-body\">
+        Rajehskqhdqs
+      </div>
+      <div class=\"modal-footer\">
+        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript
       ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
+    <script src=\"/ProjectBasket/web/js/bootstrap-datetimepicker.min.js\"></script>
+    <script src=\"/ProjectBasket/web/js/flat.min.js\"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src=\"../../assets/js/ie10-viewport-bug-workaround.js\"></script>
   ";
@@ -279,6 +310,6 @@ class __TwigTemplate_044b5f4e51f91c67d1bfda9378444ce2016176e5dfc125f3643a879e345
 
     public function getDebugInfo()
     {
-        return array (  257 => 139,  247 => 135,  241 => 132,  235 => 129,  229 => 126,  223 => 123,  217 => 120,  211 => 117,  205 => 114,  199 => 111,  193 => 108,  187 => 105,  183 => 103,  179 => 102,  155 => 81,  145 => 74,  140 => 72,  132 => 67,  125 => 63,  118 => 59,  111 => 55,  102 => 49,  95 => 45,  88 => 41,  81 => 37,  72 => 31,  65 => 27,  58 => 23,  51 => 19,  43 => 14,  31 => 4,  28 => 3,);
+        return array (  267 => 143,  257 => 139,  251 => 136,  245 => 133,  239 => 130,  233 => 127,  227 => 124,  221 => 121,  215 => 118,  209 => 115,  205 => 113,  199 => 111,  195 => 109,  193 => 108,  187 => 105,  183 => 103,  179 => 102,  155 => 81,  145 => 74,  140 => 72,  132 => 67,  125 => 63,  118 => 59,  111 => 55,  102 => 49,  95 => 45,  88 => 41,  81 => 37,  72 => 31,  65 => 27,  58 => 23,  51 => 19,  43 => 14,  31 => 4,  28 => 3,);
     }
 }

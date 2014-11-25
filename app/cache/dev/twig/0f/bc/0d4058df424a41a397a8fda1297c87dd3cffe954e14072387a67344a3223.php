@@ -60,7 +60,7 @@ class __TwigTemplate_0fbc0d4058df424a41a397a8fda1297c87dd3cffe954e14072387a67344
         echo "
                 </div>
                 <div class=\"form-group col-xs-12 col-sm-6 col-md-3\">
-                  <label for=\"prenom\">Prenom</label>
+                  <label for=\"prenom\">Prénom</label>
                   ";
         // line 32
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "prenom"), 'widget', array("attr" => array("class" => "form-control")));
@@ -90,7 +90,7 @@ class __TwigTemplate_0fbc0d4058df424a41a397a8fda1297c87dd3cffe954e14072387a67344
         echo "
                 </div>
                 <div class=\"form-group col-xs-12 col-sm-6 col-md-6\">
-                  <label for=\"adresseP\">Adresse Parents</label>
+                  <label for=\"adresseP\">Adresse parents</label>
                   ";
         // line 50
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "adresseParents"), 'widget', array("attr" => array("class" => "form-control")));
@@ -106,14 +106,14 @@ class __TwigTemplate_0fbc0d4058df424a41a397a8fda1297c87dd3cffe954e14072387a67344
         echo "
                 </div>
                 <div class=\"form-group col-xs-12 col-sm-6 col-md-4\">
-                  <label for=\"tel\">Tel</label>
+                  <label for=\"tel\">Téléphone</label>
                   ";
         // line 60
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "tel"), 'widget', array("attr" => array("class" => "form-control")));
         echo "
                 </div>
                 <div class=\"form-group col-xs-12 col-sm-6 col-md-4\">
-                  <label for=\"license\">License</label>
+                  <label for=\"license\">Numéro License</label>
                   ";
         // line 64
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "license"), 'widget', array("attr" => array("class" => "form-control")));
@@ -161,7 +161,7 @@ class __TwigTemplate_0fbc0d4058df424a41a397a8fda1297c87dd3cffe954e14072387a67344
     </div> <!-- /container -->
 
     <div>
-      <table class=\"table table-hover table-bordered\">
+      <table class=\"table table-hover table-bordered table-striped\">
         <tr>
           <th>Nom</th>
           <th>Prenom</th>

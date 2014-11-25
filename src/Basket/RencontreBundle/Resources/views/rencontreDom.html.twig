@@ -84,8 +84,8 @@
       </div>
     </div> <!-- /container -->
 
-    <table class="table table-hover table-bordered">
-      <tr class="info">
+    <table class="table table-hover table-bordered table-striped">
+      <tr>
         <th>Date</th>    
         <th>Score</th>
         <th>Divers</th>    
@@ -101,12 +101,16 @@
 
       {% for r in allRencontreDom %}
         <tr>
-          <td class="success">
+          <td>
             {{ r.date |date("d/m/Y") }}  
           </td>  
-          <td>
-            {{r.score}}
-          </td>
+          <td nowrap>
+            {% if r.score is null %}
+              <a href="#myModal" class="btnAddProductVersion" id="addProductVersion" name="addProductVersion" title="add product version" data-toggle="modal" data-target="#myModal"> Score à renseigner </a>
+            {% else %}
+              {{r.score}}
+            {% endif %}
+          </td> 
           <td>
             {{r.divers}}
           </td>
@@ -138,12 +142,33 @@
       {% endfor %}
 
     </table>
+      
+      <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Rajehskqhdqs
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript
       ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/ProjectBasket/web/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/ProjectBasket/web/js/flat.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   {% endblock %}

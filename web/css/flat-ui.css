@@ -885,6 +885,7 @@ fieldset[disabled] .btn-info.active {
   color: #fff;
   background-color: #ec7063;
   border-color: #ec7063;
+  background-position: 0 -50px;
   }
 .btn-danger:active,
 .btn-danger.active,
@@ -930,6 +931,7 @@ fieldset[disabled] .btn-danger.active {
   color: #fff;
   background-color: #58d68d;
   border-color: #58d68d;
+  background-position: 0 -50px;
   }
 .btn-success:active,
 .btn-success.active,
@@ -6197,4 +6199,9 @@ footer p {
     background: #bdc3c7 !important;
     }
   }
+  .table-striped>tbody>tr:nth-child(odd)>td{background-color: #1abc9c; text-align: center}
+  .table-striped>tbody>tr:nth-child(odd)>th{background-color: #34495e; color: white; text-align: center}
+  .table-striped>tbody>tr{text-align: center}
+  .table>tbody>tr>td>a{color:#e74c3c}
+  
 /*# sourceMappingURL=flat-ui.css.map */

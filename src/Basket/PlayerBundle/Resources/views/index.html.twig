@@ -28,7 +28,7 @@ Tous les joueurs
                   {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-3">
-                  <label for="prenom">Prenom</label>
+                  <label for="prenom">Prénom</label>
                   {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
@@ -46,7 +46,7 @@ Tous les joueurs
                   {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-6">
-                  <label for="adresseP">Adresse Parents</label>
+                  <label for="adresseP">Adresse parents</label>
                   {{ form_widget(form.adresseParents, { 'attr': {'class': 'form-control'} }) }}
                 </div>
               </div>
@@ -56,11 +56,11 @@ Tous les joueurs
                   {{ form_widget(form.mobile, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="tel">Tel</label>
+                  <label for="tel">Téléphone</label>
                   {{ form_widget(form.tel, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="license">License</label>
+                  <label for="license">Numéro License</label>
                   {{ form_widget(form.license, { 'attr': {'class': 'form-control'} }) }}
                 </div>
               </div>
@@ -93,7 +93,7 @@ Tous les joueurs
     </div> <!-- /container -->
 
     <div>
-      <table class="table table-hover table-bordered">
+      <table class="table table-hover table-bordered table-striped">
         <tr>
           <th>Nom</th>
           <th>Prenom</th>
@@ -146,6 +146,8 @@ Tous les joueurs
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/ProjectBasket/web/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/ProjectBasket/web/js/flat.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   {% endblock %}
