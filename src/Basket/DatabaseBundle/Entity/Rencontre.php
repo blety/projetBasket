@@ -51,6 +51,12 @@ class Rencontre
      */
     private $heureMatch;
     
+    /**
+     * @var integer
+     * @ORM\Column(name="rang", type="integer")
+     */
+    private $rang;
+    
     
 
     /**
@@ -155,4 +161,27 @@ class Rencontre
         return $this->heureMatch;
     }
     
+
+    /**
+     * Set rang
+     *
+     * @param integer $rang
+     * @return Rencontre
+     */
+    public function setRang($rang)
+    {
+        $this->rang = $rang;
+    
+        return $this;
+    }
+
+    /**
+     * Get rang
+     *
+     * @return integer 
+     */
+    public function getRang()
+    {
+        return $this->rang;
+    }
 }

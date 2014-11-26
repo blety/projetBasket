@@ -520,4 +520,119 @@ class Personne
     {
         return $this->refEquipe;
     }
+
+    /**
+     * Set telParents
+     *
+     * @param string $telParents
+     * @return Personne
+     */
+    public function setTelParents($telParents)
+    {
+        $this->telParents = $telParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get telParents
+     *
+     * @return string 
+     */
+    public function getTelParents()
+    {
+        return $this->telParents;
+    }
+
+    /**
+     * Set emailParents
+     *
+     * @param string $emailParents
+     * @return Personne
+     */
+    public function setEmailParents($emailParents)
+    {
+        $this->emailParents = $emailParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailParents
+     *
+     * @return string 
+     */
+    public function getEmailParents()
+    {
+        return $this->emailParents;
+    }
+
+    /**
+     * Set inscrit
+     *
+     * @param boolean $inscrit
+     * @return Personne
+     */
+    public function setInscrit($inscrit)
+    {
+        $this->inscrit = $inscrit;
+    
+        return $this;
+    }
+
+    /**
+     * Get inscrit
+     *
+     * @return boolean 
+     */
+    public function getInscrit()
+    {
+        return $this->inscrit;
+    }
+
+    /**
+     * Set licensePayee
+     *
+     * @param boolean $licensePayee
+     * @return Personne
+     */
+    public function setLicensePayee($licensePayee)
+    {
+        $this->licensePayee = $licensePayee;
+    
+        return $this;
+    }
+
+    /**
+     * Get licensePayee
+     *
+     * @return boolean 
+     */
+    public function getLicensePayee()
+    {
+        return $this->licensePayee;
+    }
+
+    /**
+     * Set licenseRecue
+     *
+     * @param boolean $licenseRecue
+     * @return Personne
+     */
+    public function setLicenseRecue($licenseRecue)
+    {
+        $this->licenseRecue = $licenseRecue;
+    
+        return $this;
+    }
+
+    /**
+     * Get licenseRecue
+     *
+     * @return boolean 
+     */
+    public function getLicenseRecue()
+    {
+        return $this->licenseRecue;
+    }
 }

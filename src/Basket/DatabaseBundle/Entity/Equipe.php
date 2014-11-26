@@ -55,6 +55,12 @@ class Equipe
     private $genre;
     
     /**
+     * @var integer
+     * @ORM\Column(name="numero", type="integer")
+     */
+    private $numero;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Personne", mappedBy="nom")
      */
     private $joueur;
@@ -279,5 +285,28 @@ class Equipe
     public function getResponsableEquipe()
     {
         return $this->responsableEquipe;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param integer $numero
+     * @return Equipe
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return integer 
+     */
+    public function getNumero()
+    {
+        return $this->numero;
     }
 }
