@@ -26,6 +26,7 @@ class PersonneType extends AbstractType
             ->add('mobile')
             ->add('tel')
             ->add('email')
+            ->add('emailParents')
             ->add('license')
             ->add('divers')
             ->add('refPersonne','entity',array(
@@ -34,6 +35,9 @@ class PersonneType extends AbstractType
                 ))
             ->add('ville')
             ->add('codePostal')
+            ->add('inscrit')
+            ->add('licensePayee')
+            ->add('licenseRecue')
             ->add('save','submit')
         ;
     }

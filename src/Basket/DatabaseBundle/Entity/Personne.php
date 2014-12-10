@@ -134,19 +134,19 @@ class Personne
     
     /**
      * @var boolean
-     * @ORM\Column(name="inscrit", type="boolean")
+     * @ORM\Column(name="inscrit", type="boolean", nullable=true)
      */
     private $inscrit;
     
     /**
      * @var boolean
-     * @ORM\Column(name="licensePayee", type="boolean")
+     * @ORM\Column(name="licensePayee", type="boolean", nullable=true)
      */
     private $licensePayee;
     
     /**
      * @var boolean
-     * @ORM\Column(name="licenseRecue", type="boolean")
+     * @ORM\Column(name="licenseRecue", type="boolean", nullable=true)
      */
     private $licenseRecue;
         
