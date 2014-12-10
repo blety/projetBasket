@@ -60,9 +60,22 @@ class Personne
     
     /**
      * @var string
+     * @ORM\Column(name="codepostalParents", type="string", length=10)
+     * @Assert\Regex("/^[0-9]{5}$/")
+     */
+    private $codepostalParents;
+    
+    /**
+     * @var string
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="villeParents", type="string", length=255)
+     */
+    private $villeParents;
     
     /**
      * @var string
@@ -76,7 +89,7 @@ class Personne
     
     /**
      * @var datetime
-     * @ORM\Column(name="birthday", type="datetime")
+     * @ORM\Column(name="birthday", type="date")
      */
     private $birthday;
     
@@ -134,19 +147,19 @@ class Personne
     
     /**
      * @var boolean
-     * @ORM\Column(name="inscrit", type="boolean")
+     * @ORM\Column(name="inscrit", type="boolean", nullable=true)
      */
     private $inscrit;
     
     /**
      * @var boolean
-     * @ORM\Column(name="licensePayee", type="boolean")
+     * @ORM\Column(name="licensePayee", type="boolean", nullable=true)
      */
     private $licensePayee;
     
     /**
      * @var boolean
-     * @ORM\Column(name="licenseRecue", type="boolean")
+     * @ORM\Column(name="licenseRecue", type="boolean", nullable=true)
      */
     private $licenseRecue;
         
