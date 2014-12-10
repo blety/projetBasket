@@ -6,9 +6,7 @@
 
 {# % blocl body %}
 Tous les joueurs
-
 {{ form(form) }}
-
   {% endblock %#}
 {% block body %}
   <div class="container">
@@ -28,7 +26,7 @@ Tous les joueurs
                   {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-3">
-                  <label for="prenom">PrÃ©nom</label>
+                  <label for="prenom">Prénom</label>
                   {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
@@ -92,11 +90,11 @@ Tous les joueurs
                   {{ form_widget(form.mobile, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="tel">TÃ©lÃ©phone</label>
+                  <label for="tel">Téléphone</label>
                   {{ form_widget(form.tel, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="license">NumÃ©ro License</label>
+                  <label for="license">Numéro License</label>
                   {{ form_widget(form.license, { 'attr': {'class': 'form-control', 'placeholder':'Ex: MU123456'} }) }}
                 </div>
               </div>
