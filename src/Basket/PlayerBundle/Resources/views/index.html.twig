@@ -59,24 +59,32 @@ Tous les joueurs
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group col-xs-12 col-sm-4 col-md-4">
                   <label for="adresse">Adresse</label>
                   {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
                 </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-6">
-                  <label for="adresseP">Adresse parents</label>
-                  {{ form_widget(form.adresseParents, { 'attr': {'class': 'form-control'} }) }}
-                </div>
-              </div>
-                <div class="row">
-                  <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group col-xs-12 col-sm-4 col-md-4">
                     <label for="ville">Ville</label>
                     {{ form_widget(form.ville, { 'attr': {'class': 'form-control'} }) }}
                   </div>
-                  <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
                   <label for="codepostal">Code Postal</label>
                   {{ form_widget(form.codePostal, { 'attr': {'class': 'form-control'} }) }}
+                  </div>                
+              </div>
+                <div class="row">
+                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                  <label for="adresseP">Adresse parents</label>
+                  {{ form_widget(form.adresseParents, { 'attr': {'class': 'form-control'} }) }}
                   </div>
+                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                    <label for="ville">Ville parents</label>
+                    {{ form_widget(form.villeParents, { 'attr': {'class': 'form-control'} }) }}
+                  </div>
+                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
+                  <label for="codepostal">Code Postal parents</label>
+                  {{ form_widget(form.codepostalParents, { 'attr': {'class': 'form-control'} }) }}
+                  </div>         
                 </div>              
               <div class="row">
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">

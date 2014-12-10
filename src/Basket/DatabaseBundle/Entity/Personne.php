@@ -60,9 +60,22 @@ class Personne
     
     /**
      * @var string
+     * @ORM\Column(name="codepostalParents", type="string", length=10)
+     * @Assert\Regex("/^[0-9]{5}$/")
+     */
+    private $codepostalParents;
+    
+    /**
+     * @var string
      * @ORM\Column(name="ville", type="string", length=255)
      */
     private $ville;
+    
+    /**
+     * @var string
+     * @ORM\Column(name="villeParents", type="string", length=255)
+     */
+    private $villeParents;
     
     /**
      * @var string
@@ -76,7 +89,7 @@ class Personne
     
     /**
      * @var datetime
-     * @ORM\Column(name="birthday", type="datetime")
+     * @ORM\Column(name="birthday", type="date")
      */
     private $birthday;
     
@@ -634,5 +647,51 @@ class Personne
     public function getLicenseRecue()
     {
         return $this->licenseRecue;
+    }
+
+    /**
+     * Set codepostalParents
+     *
+     * @param string $codepostalParents
+     * @return Personne
+     */
+    public function setCodepostalParents($codepostalParents)
+    {
+        $this->codepostalParents = $codepostalParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get codepostalParents
+     *
+     * @return string 
+     */
+    public function getCodepostalParents()
+    {
+        return $this->codepostalParents;
+    }
+
+    /**
+     * Set villeParents
+     *
+     * @param string $villeParents
+     * @return Personne
+     */
+    public function setVilleParents($villeParents)
+    {
+        $this->villeParents = $villeParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get villeParents
+     *
+     * @return string 
+     */
+    public function getVilleParents()
+    {
+        return $this->villeParents;
     }
 }

@@ -23,6 +23,8 @@ class PersonneType extends AbstractType
             ->add('birthday')
             ->add('adresse')
             ->add('adresseParents')
+            ->add('villeParents')
+            ->add('codepostalParents')
             ->add('mobile')
             ->add('tel')
             ->add('email')
