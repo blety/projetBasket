@@ -28,6 +28,7 @@ class RencontreExterieurType extends AbstractType
                 'property'=>'categorie'
             ))
             ->add('score',null,array('label'=>'Score (*)'))
+            ->add('rang')
             ->add('save','submit')
         ;
     }

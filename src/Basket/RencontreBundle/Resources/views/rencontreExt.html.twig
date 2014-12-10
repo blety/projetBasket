@@ -44,6 +44,12 @@
                   {{ form_widget(form.equipeAdv, { 'attr': {'class': 'form-control'} }) }}
                 </div>
               </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="rang">Rang</label>
+                  {{ form_widget(form.rang, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
               <div class="row centered-form">
                 <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
                   {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
@@ -67,7 +73,8 @@
         <th>Heure Match</th>
         <th>Score</th>        
         <th>Equipe à domicile</th>
-        <th>Equipe adverse</th>    
+        <th>Equipe adverse</th>
+        <th>Rang</th>
       </tr>
 
       {% for r in allRencontreExt %}
@@ -94,6 +101,9 @@
             {{r.equipeAdv.club}} - 
             {{r.equipeAdv.categorie.sigle}}
           </td> 
+          <td>
+            {{r.rang}}
+          </td>
         </tr>
       {% endfor %}
 
