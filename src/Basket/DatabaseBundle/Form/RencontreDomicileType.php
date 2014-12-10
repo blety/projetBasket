@@ -61,6 +61,7 @@ class RencontreDomicileType extends AbstractType
                 'property'=>'nom'
             ))
             ->add('divers')
+            ->add('rang')
             ->add('save','submit')           
         ;
     }

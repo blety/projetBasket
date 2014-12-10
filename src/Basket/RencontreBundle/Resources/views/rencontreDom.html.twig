@@ -67,6 +67,12 @@
                   {{ form_widget(form.divers, { 'attr': {'class': 'form-control'} }) }}
                 </div>
               </div>
+                <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="rang">Rang</label>
+                  {{ form_widget(form.rang, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                </div>
               <div class="row centered-form">
                 <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
                   {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
@@ -97,6 +103,7 @@
         <th>Marqueur A</th>
         <th>Marqueur B</th>
         <th>Marqueur C</th>
+        <th>Rang</th>
       </tr>
 
       {% for r in allRencontreDom %}
@@ -137,6 +144,9 @@
           </td>
           <td>
             {{r.marqueurC}}
+          </td>
+          <td>
+            {{r.rang}}
           </td>
         </tr>
       {% endfor %}

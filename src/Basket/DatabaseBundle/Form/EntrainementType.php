@@ -30,7 +30,7 @@ class EntrainementType extends AbstractType
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                             ->where('p.refPersonne=:id')
-                            ->setParameter('id',5);
+                            ->setParameter('id',3);
                     },
             ))
             ->add('equipe','entity',array(
