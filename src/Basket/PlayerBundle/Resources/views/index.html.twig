@@ -21,12 +21,12 @@ Tous les joueurs
             {{ form_start(form) }}
             <form role="form">
               <div class="row">
-                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
                   <label for="nom">Nom</label>
                   {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-3">
-                  <label for="prenom">Prénom</label>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="prenom">PrÃ©nom</label>
                   {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
@@ -43,70 +43,73 @@ Tous les joueurs
                   <label for="birthday">Date de naissance</label>
                   {{ form_widget(form.birthday, { 'attr': {'class': 'input-append'} }) }}
                 </div>
-                <div class="form-group col-xs-2 col-sm-1 col-md-3">
+                <div class="form-group col-xs-2 col-sm-1 col-md-2">
                   <label for="inscrit">Inscrit ?</label>
                   {{ form_widget(form.inscrit, { 'attr': {'class': 'checkbox'} }) }}
                 </div>
-                <div class="form-group col-xs-2 col-sm-2 col-md-3">
+                <div class="form-group col-xs-2 col-sm-2 col-md-2">
                   <label for="licensePayee">License payee ?</label>
                   {{ form_widget(form.licensePayee, { 'attr': {'class': 'checkbox'} }) }}
                 </div>
-                <div class="form-group col-xs-2 col-sm-2 col-md-3">
+                <div class="form-group col-xs-2 col-sm-2 col-md-2">
                   <label for="licenseRecue">License recue ?</label>
                   {{ form_widget(form.licenseRecue, { 'attr': {'class': 'checkbox'} }) }}
                 </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                  <label for="adresse">Adresse</label>
-                  {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
-                </div>
-                <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                    <label for="ville">Ville</label>
-                    {{ form_widget(form.ville, { 'attr': {'class': 'form-control'} }) }}
-                  </div>
-                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                  <label for="codepostal">Code Postal</label>
-                  {{ form_widget(form.codePostal, { 'attr': {'class': 'form-control'} }) }}
-                  </div>                
-              </div>
-                <div class="row">
-                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                  <label for="adresseP">Adresse parents</label>
-                  {{ form_widget(form.adresseParents, { 'attr': {'class': 'form-control'} }) }}
-                  </div>
-                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                    <label for="ville">Ville parents</label>
-                    {{ form_widget(form.villeParents, { 'attr': {'class': 'form-control'} }) }}
-                  </div>
-                  <div class="form-group col-xs-12 col-sm-4 col-md-4">
-                  <label for="codepostal">Code Postal parents</label>
-                  {{ form_widget(form.codepostalParents, { 'attr': {'class': 'form-control'} }) }}
-                  </div>         
-                </div>              
-              <div class="row">
-                <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="mobile">Mobile</label>
-                  {{ form_widget(form.mobile, { 'attr': {'class': 'form-control'} }) }}
-                </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="tel">Téléphone</label>
-                  {{ form_widget(form.tel, { 'attr': {'class': 'form-control'} }) }}
-                </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-4">
-                  <label for="license">Numéro License</label>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="license">NumÃ©ro License</label>
                   {{ form_widget(form.license, { 'attr': {'class': 'form-control', 'placeholder':'Ex: MU123456'} }) }}
                 </div>
               </div>
               <div class="row">
-                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="adresse">Adresse</label>
+                  {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="ville">Ville</label>
+                  {{ form_widget(form.ville, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="codepostal">Code Postal</label>
+                  {{ form_widget(form.codePostal, { 'attr': {'class': 'form-control'} }) }}
+                </div>   
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
                   <label for="email">E-mail</label>
                   {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
                 </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="adresseP">Adresse parents</label>
+                  {{ form_widget(form.adresseParents, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="ville">Ville parents</label>
+                  {{ form_widget(form.villeParents, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
+                  <label for="codepostal">Code Postal parents</label>
+                  {{ form_widget(form.codepostalParents, { 'attr': {'class': 'form-control'} }) }}
+                </div>      
+                <div class="form-group col-xs-12 col-sm-3 col-md-3">
                   <label for="emailParents">E-mail parents</label>
                   {{ form_widget(form.emailParents, { 'attr': {'class': 'form-control'} }) }}
                 </div>
+              </div>              
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                  <label for="mobile">Mobile</label>
+                  {{ form_widget(form.mobile, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-6">
+                  <label for="tel">TÃ©lÃ©phone</label>
+                  {{ form_widget(form.tel, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+              </div>
+              <div class="row">
+                
+                
               </div>
               <div class="row">
                 <div class="form-group col-xs-12 col-sm-6 col-md-12">
@@ -136,18 +139,24 @@ Tous les joueurs
       </div>
     </div> <!-- /container -->
 
-    <div>
-      <table class="table table-hover table-bordered table-striped">
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered table-striped" style="font-size: 12px;">
         <tr>
           <th>Nom</th>
           <th>Prenom</th>
           <th>Genre</th>
           <th>Adresse</th>
+          <th>Ville</th>
+          <th>CodePostal</th>
+          <th>Email</th>
           <th>Adresse des parents</th>
+          <th>Ville Parents</th>
+          <th>CodePostal</th>
+          <th>Email Parents</th>
           <th>Mobile</th>
           <th>Telephone</th>
           <th>License</th>
-          <th>Divers</th>
+          
         </tr>
 
         {% for player in allPlayers %}
@@ -165,7 +174,25 @@ Tous les joueurs
               {{player.adresse}}
             </td>
             <td>
+              {{player.ville}}
+            </td>
+            <td>
+              {{player.codePostal}}
+            </td>
+            <td>
+              {{player.email}}
+            </td>
+            <td>
               {{player.adresseParents}}
+            </td>
+            <td>
+              {{player.villeParents}}
+            </td>
+            <td>
+              {{player.codePostalParents}}
+            </td>
+            <td>
+              {{player.emailParents}}
             </td>
             <td>
               {{player.mobile}}
@@ -176,9 +203,7 @@ Tous les joueurs
             <td>
               {{player.license}}
             </td>
-            <td>
-              {{player.divers}}
-            </td>
+            
           </tr>
         {% endfor %}
 
