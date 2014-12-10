@@ -20,16 +20,20 @@ class PersonneType extends AbstractType
             ->add('genre','choice',array(
                 'choices'=> array('masculin' => 'masculin', 'féminin' => 'féminin')
             ))
+            ->add('birthday')
             ->add('adresse')
             ->add('adresseParents')
             ->add('mobile')
             ->add('tel')
+            ->add('email')
             ->add('license')
             ->add('divers')
             ->add('refPersonne','entity',array(
                   'class'=>'BasketDatabaseBundle:RefPersonne',
                   'property'=>'type'
                 ))
+            ->add('ville')
+            ->add('codePostal')
             ->add('save','submit')
         ;
     }
