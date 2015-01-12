@@ -1,3 +1,7 @@
+basket_equipe:
+    resource: "@BasketEquipeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 basket_rencontre:
     resource: "@BasketRencontreBundle/Resources/config/routing.yml"
     prefix:   /

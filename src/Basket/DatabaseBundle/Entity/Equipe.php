@@ -24,9 +24,24 @@ class Equipe
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="annee", type="datetime", nullable=true)
+     * @ORM\Column(name="annee1", type="datetime", nullable=true)
      */
-    private $annee;
+    private $annee1;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee2", type="datetime", nullable=true)
+     */
+    private $annee2;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee3", type="datetime", nullable=true)
+     */
+    private $annee3;
+    
 
     /**
      * @var string
@@ -50,7 +65,7 @@ class Equipe
     /**
      * @var boolean
      *
-     * @ORM\Column(name="genre", type="boolean")
+     * @ORM\Column(name="genre", type="boolean", nullable=true)
      */
     private $genre;
     
@@ -84,29 +99,6 @@ class Equipe
     {
         return $this->id;
     }
-
-    /**
-     * Set annee
-     *
-     * @param \DateTime $annee
-     * @return equipe
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
-
-    /**
-     * Get annee
-     *
-     * @return \DateTime 
-     */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }   
 
     /**
      * Set genre
@@ -308,5 +300,74 @@ class Equipe
     public function getNumero()
     {
         return $this->numero;
+    }
+
+    /**
+     * Set annee1
+     *
+     * @param \DateTime $annee1
+     * @return Equipe
+     */
+    public function setAnnee1($annee1)
+    {
+        $this->annee1 = $annee1;
+    
+        return $this;
+    }
+
+    /**
+     * Get annee1
+     *
+     * @return \DateTime 
+     */
+    public function getAnnee1()
+    {
+        return $this->annee1;
+    }
+
+    /**
+     * Set annee2
+     *
+     * @param \DateTime $annee2
+     * @return Equipe
+     */
+    public function setAnnee2($annee2)
+    {
+        $this->annee2 = $annee2;
+    
+        return $this;
+    }
+
+    /**
+     * Get annee2
+     *
+     * @return \DateTime 
+     */
+    public function getAnnee2()
+    {
+        return $this->annee2;
+    }
+
+    /**
+     * Set annee3
+     *
+     * @param \DateTime $annee3
+     * @return Equipe
+     */
+    public function setAnnee3($annee3)
+    {
+        $this->annee3 = $annee3;
+    
+        return $this;
+    }
+
+    /**
+     * Get annee3
+     *
+     * @return \DateTime 
+     */
+    public function getAnnee3()
+    {
+        return $this->annee3;
     }
 }

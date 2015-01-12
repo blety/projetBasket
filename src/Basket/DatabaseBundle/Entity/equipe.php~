@@ -24,9 +24,24 @@ class Equipe
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="annee", type="datetime", nullable=true)
+     * @ORM\Column(name="annee1", type="datetime", nullable=true)
      */
-    private $annee;
+    private $annee1;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee2", type="datetime", nullable=true)
+     */
+    private $annee2;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee3", type="datetime", nullable=true)
+     */
+    private $annee3;
+    
 
     /**
      * @var string
@@ -50,7 +65,7 @@ class Equipe
     /**
      * @var boolean
      *
-     * @ORM\Column(name="genre", type="boolean")
+     * @ORM\Column(name="genre", type="boolean", nullable=true)
      */
     private $genre;
     
@@ -84,29 +99,6 @@ class Equipe
     {
         return $this->id;
     }
-
-    /**
-     * Set annee
-     *
-     * @param \DateTime $annee
-     * @return equipe
-     */
-    public function setAnnee($annee)
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
-
-    /**
-     * Get annee
-     *
-     * @return \DateTime 
-     */
-    public function getAnnee()
-    {
-        return $this->annee;
-    }   
 
     /**
      * Set genre
@@ -285,5 +277,28 @@ class Equipe
     public function getResponsableEquipe()
     {
         return $this->responsableEquipe;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param integer $numero
+     * @return Equipe
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return integer 
+     */
+    public function getNumero()
+    {
+        return $this->numero;
     }
 }

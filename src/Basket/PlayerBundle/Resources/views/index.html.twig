@@ -168,7 +168,11 @@ Tous les joueurs
               {{player.prenom}}
             </td>
             <td>
-              {{player.genre}}
+              {% if player.genre == '1' %}
+                Masculin
+                {% else %}
+                  Feminin
+                  {% endif %}
             </td>
             <td>
               {{player.adresse}}

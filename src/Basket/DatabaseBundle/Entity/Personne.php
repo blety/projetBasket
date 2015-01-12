@@ -60,7 +60,7 @@ class Personne
     
     /**
      * @var string
-     * @ORM\Column(name="codepostalParents", type="string", length=10)
+     * @ORM\Column(name="codepostalParents", type="string", length=10, nullable=true)
      * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $codepostalParents;
@@ -73,7 +73,7 @@ class Personne
     
     /**
      * @var string
-     * @ORM\Column(name="villeParents", type="string", length=255)
+     * @ORM\Column(name="villeParents", type="string", length=255, nullable=true)
      */
     private $villeParents;
     
@@ -96,7 +96,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="adresseParents", type="string", length=255)
+     * @ORM\Column(name="adresseParents", type="string", length=255, nullable=true)
      */
     private $adresseParents;
     
@@ -109,7 +109,7 @@ class Personne
     
      /**
      * @var string
-     * @ORM\Column(name="emailParents", type="string", length=255)
+     * @ORM\Column(name="emailParents", type="string", length=255, nullable=true)
      * @Assert\Email(
      *     message = "'{{ value }}' n'est pas un email valide.",
      *     checkMX = true

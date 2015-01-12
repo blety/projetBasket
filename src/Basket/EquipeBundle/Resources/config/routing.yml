@@ -1,0 +1,3 @@
+basket_equipe_homepage:
+    path:     /equipe/index
+    defaults: { _controller: BasketEquipeBundle:Equipe:index }

@@ -3,6 +3,7 @@
 namespace Basket\DatabaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Categorie
@@ -23,8 +24,9 @@ class Categorie
 
     
     /**
-     * @var datetime
-     * @ORM\Column(name="annee", type="datetime", nullable=true)
+     * @var string
+     * @ORM\Column(name="annee", type="string", nullable=true)
+     * @Assert\Regex("/^19[0-9]{2}$/")
      */
     private $annee;
     

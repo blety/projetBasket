@@ -85,7 +85,11 @@
             {{e.fin | date("h:m")}}
           </td>
           <td>
-            {{ e.obligatoire }}
+            {% if e.obligatoire == '1' %}
+              Oui
+              {% else %}
+                Non
+                {% endif %}
           </td>
           <td>
             {{e.salle.nom}}
