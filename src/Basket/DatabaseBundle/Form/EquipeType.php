@@ -15,10 +15,16 @@ class EquipeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('annee')
-            ->add('numEquipe')
+            ->add('annee1')
+            ->add('annee2')
+            ->add('annee3')
+            ->add('nom')
+            ->add('sigle')
+            ->add('niveau')
             ->add('genre')
-           
+            ->add('numero')
+            ->add('categorie')
+            ->add('responsableEquipe')
         ;
     }
     
