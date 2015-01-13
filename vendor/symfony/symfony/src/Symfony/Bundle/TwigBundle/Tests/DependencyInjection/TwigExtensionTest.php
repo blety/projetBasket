@@ -95,7 +95,8 @@ class TwigExtensionTest extends TestCase
         $this->loadFromFile($container, 'customTemplateEscapingGuesser', $format);
         $this->compileContainer($container);
 
-        $this->assertTemplateEscapingGuesserDefinition($container, 'my_project.some_bundle.template_escaping_guesser', 'guess');
+        $options = $container->getParameter('twig.options');
+        $this->assertEquals(array(new Reference('my_project.some_bundle.template_escaping_guesser'), 'guess'), $options['autoescape']);
     }
 
     /**
@@ -108,20 +109,21 @@ class TwigExtensionTest extends TestCase
         $this->loadFromFile($container, 'empty', $format);
         $this->compileContainer($container);
 
-        $this->assertTemplateEscapingGuesserDefinition($container, 'templating.engine.twig', 'guessDefaultEscapingStrategy');
+        $options = $container->getParameter('twig.options');
+        $this->assertEquals(array('Symfony\Bundle\TwigBundle\TwigDefaultEscapingStrategy', 'guess'), $options['autoescape']);
     }
 
     public function testGlobalsWithDifferentTypesAndValues()
     {
         $globals = array(
-            'array'   => array(),
-            'false'   => false,
-            'float'   => 2.0,
+            'array' => array(),
+            'false' => false,
+            'float' => 2.0,
             'integer' => 3,
-            'null'    => null,
-            'object'  => new \stdClass(),
-            'string'  => 'foo',
-            'true'    => true,
+            'null' => null,
+            'object' => new \stdClass(),
+            'string' => 'foo',
+            'true' => true,
         );
 
         $container = $this->createContainer();
@@ -183,10 +185,10 @@ class TwigExtensionTest extends TestCase
     {
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.cache_dir' => __DIR__,
-            'kernel.root_dir'  => __DIR__.'/Fixtures',
-            'kernel.charset'   => 'UTF-8',
-            'kernel.debug'     => false,
-            'kernel.bundles'   => array('TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle'),
+            'kernel.root_dir' => __DIR__.'/Fixtures',
+            'kernel.charset' => 'UTF-8',
+            'kernel.debug' => false,
+            'kernel.bundles' => array('TwigBundle' => 'Symfony\\Bundle\\TwigBundle\\TwigBundle'),
         )));
 
         return $container;
@@ -218,19 +220,5 @@ class TwigExtensionTest extends TestCase
         }
 
         $loader->load($file.'.'.$format);
-    }
-
-    private function assertTemplateEscapingGuesserDefinition(ContainerBuilder $container, $serviceId, $serviceMethod)
-    {
-        $def = $container->getDefinition('templating.engine.twig');
-
-        $this->assertCount(1, $def->getMethodCalls());
-
-        foreach ($def->getMethodCalls() as $call) {
-            if ('setDefaultEscapingStrategy' === $call[0]) {
-                $this->assertSame($serviceId, (string) $call[1][0][0]);
-                $this->assertSame($serviceMethod, $call[1][0][1]);
-            }
-        }
     }
 }

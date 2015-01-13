@@ -21,10 +21,13 @@ class EquipeType extends AbstractType
             ->add('nom')
             ->add('sigle')
             ->add('niveau')
-            ->add('genre')
+            ->add('genre','choice',array(
+                'choices'=> array('masculin' => 'masculin', 'féminin' => 'féminin')
+            ))
             ->add('numero')
             ->add('categorie')
             ->add('responsableEquipe')
+            ->add('save','submit')
         ;
     }
     

@@ -15,8 +15,8 @@ class PersonneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
+            ->add('username')
+            ->add('surname')
             ->add('genre','choice',array(
                 'choices'=> array('masculin' => 'masculin', 'féminin' => 'féminin')
             ))

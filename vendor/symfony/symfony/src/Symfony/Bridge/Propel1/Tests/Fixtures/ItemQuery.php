@@ -14,18 +14,18 @@ namespace Symfony\Bridge\Propel1\Tests\Fixtures;
 class ItemQuery
 {
     private $map = array(
-        'id'            => \PropelColumnTypes::INTEGER,
-        'value'         => \PropelColumnTypes::VARCHAR,
-        'price'         => \PropelColumnTypes::FLOAT,
-        'is_active'     => \PropelColumnTypes::BOOLEAN,
-        'slug'          => \PropelColumnTypes::VARCHAR,
-        'enabled'       => \PropelColumnTypes::BOOLEAN_EMU,
-        'updated_at'    => \PropelColumnTypes::TIMESTAMP,
+        'id' => \PropelColumnTypes::INTEGER,
+        'value' => \PropelColumnTypes::VARCHAR,
+        'price' => \PropelColumnTypes::FLOAT,
+        'is_active' => \PropelColumnTypes::BOOLEAN,
+        'slug' => \PropelColumnTypes::VARCHAR,
+        'enabled' => \PropelColumnTypes::BOOLEAN_EMU,
+        'updated_at' => \PropelColumnTypes::TIMESTAMP,
     );
 
     private $caseInsensitiveMap = array(
-        'isactive'      => 'is_active',
-        'updatedat'     => 'updated_at',
+        'isactive' => 'is_active',
+        'updatedat' => 'updated_at',
     );
 
     public static $result = array();
@@ -57,7 +57,7 @@ class ItemQuery
     }
 
     /**
-     * Method from the TableMap API
+     * Method from the TableMap API.
      */
     public function hasColumn($column)
     {
@@ -65,7 +65,7 @@ class ItemQuery
     }
 
     /**
-     * Method from the TableMap API
+     * Method from the TableMap API.
      */
     public function getColumn($column)
     {
@@ -75,7 +75,7 @@ class ItemQuery
     }
 
     /**
-     * Method from the TableMap API
+     * Method from the TableMap API.
      */
     public function hasColumnByInsensitiveCase($column)
     {

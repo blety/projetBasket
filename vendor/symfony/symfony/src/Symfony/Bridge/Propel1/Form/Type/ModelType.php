@@ -55,11 +55,19 @@ class ModelType extends AbstractType
      */
     private $propertyAccessor;
 
+    /**
+     * Constructor.
+     *
+     * @param PropertyAccessorInterface|null $propertyAccessor
+     */
     public function __construct(PropertyAccessorInterface $propertyAccessor = null)
     {
         $this->propertyAccessor = $propertyAccessor ?: PropertyAccess::createPropertyAccessor();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['multiple']) {
@@ -67,6 +75,9 @@ class ModelType extends AbstractType
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $propertyAccessor = $this->propertyAccessor;
@@ -85,25 +96,31 @@ class ModelType extends AbstractType
         };
 
         $resolver->setDefaults(array(
-            'template'          => 'choice',
-            'multiple'          => false,
-            'expanded'          => false,
-            'class'             => null,
-            'property'          => null,
-            'query'             => null,
-            'choices'           => null,
-            'choice_list'       => $choiceList,
-            'group_by'          => null,
-            'by_reference'      => false,
-            'index_property'    => null,
+            'template' => 'choice',
+            'multiple' => false,
+            'expanded' => false,
+            'class' => null,
+            'property' => null,
+            'query' => null,
+            'choices' => null,
+            'choice_list' => $choiceList,
+            'group_by' => null,
+            'by_reference' => false,
+            'index_property' => null,
         ));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'choice';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'model';

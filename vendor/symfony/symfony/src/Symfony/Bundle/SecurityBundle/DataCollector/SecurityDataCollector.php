@@ -11,6 +11,7 @@
 
 namespace Symfony\Bundle\SecurityBundle\DataCollector;
 
+use Symfony\Component\Security\Core\Role\RoleInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +26,11 @@ class SecurityDataCollector extends DataCollector
 {
     private $context;
 
+    /**
+     * Constructor.
+     *
+     * @param SecurityContextInterface|null $context
+     */
     public function __construct(SecurityContextInterface $context = null)
     {
         $this->context = $context;
@@ -37,27 +43,27 @@ class SecurityDataCollector extends DataCollector
     {
         if (null === $this->context) {
             $this->data = array(
-                'enabled'       => false,
+                'enabled' => false,
                 'authenticated' => false,
-                'token_class'   => null,
-                'user'          => '',
-                'roles'         => array(),
+                'token_class' => null,
+                'user' => '',
+                'roles' => array(),
             );
         } elseif (null === $token = $this->context->getToken()) {
             $this->data = array(
-                'enabled'       => true,
+                'enabled' => true,
                 'authenticated' => false,
-                'token_class'   => null,
-                'user'          => '',
-                'roles'         => array(),
+                'token_class' => null,
+                'user' => '',
+                'roles' => array(),
             );
         } else {
             $this->data = array(
-                'enabled'       => true,
+                'enabled' => true,
                 'authenticated' => $token->isAuthenticated(),
-                'token_class'   => get_class($token),
-                'user'          => $token->getUsername(),
-                'roles'         => array_map(function ($role) { return $role->getRole();}, $token->getRoles()),
+                'token_class' => get_class($token),
+                'user' => $token->getUsername(),
+                'roles' => array_map(function (RoleInterface $role) { return $role->getRole(); }, $token->getRoles()),
             );
         }
     }
@@ -65,7 +71,7 @@ class SecurityDataCollector extends DataCollector
     /**
      * Checks if security is enabled.
      *
-     * @return bool    true if security is enabled, false otherwise
+     * @return bool true if security is enabled, false otherwise
      */
     public function isEnabled()
     {
@@ -95,7 +101,7 @@ class SecurityDataCollector extends DataCollector
     /**
      * Checks if the user is authenticated or not.
      *
-     * @return bool    true if the user is authenticated, false otherwise
+     * @return bool true if the user is authenticated, false otherwise
      */
     public function isAuthenticated()
     {

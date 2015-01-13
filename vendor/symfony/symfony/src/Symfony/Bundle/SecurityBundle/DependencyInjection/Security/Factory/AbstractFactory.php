@@ -12,14 +12,13 @@
 namespace Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory;
 
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
-
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * AbstractFactory is the base class for all classes inheriting from
- * AbstractAuthenticationListener
+ * AbstractAuthenticationListener.
  *
  * @author Lukas Kahwe Smith <smith@pooteeweet.org>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
@@ -27,24 +26,24 @@ use Symfony\Component\DependencyInjection\Reference;
 abstract class AbstractFactory implements SecurityFactoryInterface
 {
     protected $options = array(
-        'check_path'                     => '/login_check',
-        'use_forward'                    => false,
-        'require_previous_session'       => true,
+        'check_path' => '/login_check',
+        'use_forward' => false,
+        'require_previous_session' => true,
     );
 
     protected $defaultSuccessHandlerOptions = array(
         'always_use_default_target_path' => false,
-        'default_target_path'            => '/',
-        'login_path'                     => '/login',
-        'target_path_parameter'          => '_target_path',
-        'use_referer'                    => false,
+        'default_target_path' => '/',
+        'login_path' => '/login',
+        'target_path_parameter' => '_target_path',
+        'use_referer' => false,
     );
 
     protected $defaultFailureHandlerOptions = array(
-        'failure_path'                   => null,
-        'failure_forward'                => false,
-        'login_path'                     => '/login',
-        'failure_path_parameter'         => '_failure_path',
+        'failure_path' => null,
+        'failure_forward' => false,
+        'login_path' => '/login',
+        'failure_path_parameter' => '_failure_path',
     );
 
     public function create(ContainerBuilder $container, $id, $config, $userProviderId, $defaultEntryPointId)
@@ -146,7 +145,7 @@ abstract class AbstractFactory implements SecurityFactoryInterface
      *
      * @param array $config
      *
-     * @return bool    Whether a possibly configured RememberMeServices should be set for this listener
+     * @return bool Whether a possibly configured RememberMeServices should be set for this listener
      */
     protected function isRememberMeAware($config)
     {

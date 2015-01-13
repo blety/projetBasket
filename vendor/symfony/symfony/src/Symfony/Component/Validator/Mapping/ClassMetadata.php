@@ -111,7 +111,7 @@ class ClassMetadata extends ElementMetadata implements ClassMetadataInterface
     private $reflClass;
 
     /**
-     * Constructs a metadata for the given class
+     * Constructs a metadata for the given class.
      *
      * @param string $class
      */
@@ -195,7 +195,7 @@ class ClassMetadata extends ElementMetadata implements ClassMetadataInterface
     }
 
     /**
-     * Returns the name of the default group for this class
+     * Returns the name of the default group for this class.
      *
      * For each class, the group "Default" is an alias for the group
      * "<ClassName>", where <ClassName> is the non-namespaced name of the
@@ -207,7 +207,7 @@ class ClassMetadata extends ElementMetadata implements ClassMetadataInterface
      * will validate the group sequence. The constraints assigned to "Default"
      * can still be validated by validating the class in "<ClassName>".
      *
-     * @return string  The name of the default group
+     * @return string The name of the default group
      */
     public function getDefaultGroup()
     {
@@ -469,7 +469,7 @@ class ClassMetadata extends ElementMetadata implements ClassMetadataInterface
     /**
      * Sets whether a group sequence provider should be used.
      *
-     * @param bool    $active
+     * @param bool $active
      *
      * @throws GroupDefinitionException
      */

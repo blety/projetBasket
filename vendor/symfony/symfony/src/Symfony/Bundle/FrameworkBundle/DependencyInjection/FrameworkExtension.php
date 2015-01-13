@@ -254,15 +254,15 @@ class FrameworkExtension extends Extension
 
         // Choose storage class based on the DSN
         $supported = array(
-            'sqlite'    => 'Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage',
-            'mysql'     => 'Symfony\Component\HttpKernel\Profiler\MysqlProfilerStorage',
-            'file'      => 'Symfony\Component\HttpKernel\Profiler\FileProfilerStorage',
-            'mongodb'   => 'Symfony\Component\HttpKernel\Profiler\MongoDbProfilerStorage',
-            'memcache'  => 'Symfony\Component\HttpKernel\Profiler\MemcacheProfilerStorage',
+            'sqlite' => 'Symfony\Component\HttpKernel\Profiler\SqliteProfilerStorage',
+            'mysql' => 'Symfony\Component\HttpKernel\Profiler\MysqlProfilerStorage',
+            'file' => 'Symfony\Component\HttpKernel\Profiler\FileProfilerStorage',
+            'mongodb' => 'Symfony\Component\HttpKernel\Profiler\MongoDbProfilerStorage',
+            'memcache' => 'Symfony\Component\HttpKernel\Profiler\MemcacheProfilerStorage',
             'memcached' => 'Symfony\Component\HttpKernel\Profiler\MemcachedProfilerStorage',
-            'redis'     => 'Symfony\Component\HttpKernel\Profiler\RedisProfilerStorage',
+            'redis' => 'Symfony\Component\HttpKernel\Profiler\RedisProfilerStorage',
         );
-        list($class, ) = explode(':', $config['dsn'], 2);
+        list($class,) = explode(':', $config['dsn'], 2);
         if (!isset($supported[$class])) {
             throw new \LogicException(sprintf('Driver "%s" is not supported for the profiler.', $class));
         }
@@ -425,9 +425,9 @@ class FrameworkExtension extends Extension
 
         $links = array(
             'textmate' => 'txmt://open?url=file://%%f&line=%%l',
-            'macvim'   => 'mvim://open?url=file://%%f&line=%%l',
-            'emacs'    => 'emacs://open?url=file://%file&line=%line',
-            'sublime'  => 'subl://open?url=file://%file&line=%line',
+            'macvim' => 'mvim://open?url=file://%%f&line=%%l',
+            'emacs' => 'emacs://open?url=file://%%f&line=%%l',
+            'sublime' => 'subl://open?url=file://%%f&line=%%l',
         );
 
         $container->setParameter('templating.helper.code.file_link_format', isset($links[$ide]) ? $links[$ide] : $ide);
@@ -716,7 +716,7 @@ class FrameworkExtension extends Extension
                 'validator_'.hash('sha256', $container->getParameter('kernel.root_dir'))
             );
 
-            $validatorBuilder->addMethodCall('setMetadataCache', array(new Reference('validator.mapping.cache.'.$config['cache'])));
+            $validatorBuilder->addMethodCall('setMetadataCache', array(new Reference($config['cache'])));
         }
 
         switch ($config['api']) {
@@ -725,6 +725,9 @@ class FrameworkExtension extends Extension
                 break;
             case '2.5':
                 $api = Validation::API_VERSION_2_5;
+                // the validation class needs to be changed only for the 2.5 api since the deprecated interface is
+                // set as the default interface
+                $container->setParameter('validator.class', 'Symfony\Component\Validator\Validator\ValidatorInterface');
                 break;
             default:
                 $api = Validation::API_VERSION_2_5_BC;

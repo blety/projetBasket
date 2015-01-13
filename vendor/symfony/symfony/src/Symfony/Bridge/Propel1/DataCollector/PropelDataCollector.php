@@ -24,21 +24,21 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 class PropelDataCollector extends DataCollector
 {
     /**
-     * Propel logger
+     * Propel logger.
      *
-     * @var \Symfony\Bridge\Propel1\Logger\PropelLogger
+     * @var PropelLogger
      */
     private $logger;
 
     /**
-     * Propel configuration
+     * Propel configuration.
      *
      * @var \PropelConfiguration
      */
     protected $propelConfiguration;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param PropelLogger         $logger              A Propel logger.
      * @param \PropelConfiguration $propelConfiguration The Propel configuration object.
@@ -55,15 +55,15 @@ class PropelDataCollector extends DataCollector
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
         $this->data = array(
-            'queries'       => $this->buildQueries(),
-            'querycount'    => $this->countQueries(),
+            'queries' => $this->buildQueries(),
+            'querycount' => $this->countQueries(),
         );
     }
 
     /**
      * Returns the collector name.
      *
-     * @return string The collector name.
+     * @return string
      */
     public function getName()
     {
@@ -71,9 +71,9 @@ class PropelDataCollector extends DataCollector
     }
 
     /**
-     * Returns queries.
+     * Returns the collected stats for all executed SQL queries.
      *
-     * @return array Queries
+     * @return array
      */
     public function getQueries()
     {
@@ -83,7 +83,7 @@ class PropelDataCollector extends DataCollector
     /**
      * Returns the query count.
      *
-     * @return int The query count
+     * @return int
      */
     public function getQueryCount()
     {
@@ -91,9 +91,9 @@ class PropelDataCollector extends DataCollector
     }
 
     /**
-     * Returns the total time of queries.
+     * Returns the total time spent on running all queries.
      *
-     * @return float The total time of queries
+     * @return float
      */
     public function getTime()
     {
@@ -106,9 +106,9 @@ class PropelDataCollector extends DataCollector
     }
 
     /**
-     * Creates an array of Build objects.
+     * Computes the stats of all executed SQL queries.
      *
-     * @return array An array of Build objects
+     * @return array
      */
     private function buildQueries()
     {
@@ -118,16 +118,16 @@ class PropelDataCollector extends DataCollector
         $innerGlue = $this->propelConfiguration->getParameter('debugpdo.logging.innerglue', ': ');
 
         foreach ($this->logger->getQueries() as $q) {
-            $parts     = explode($outerGlue, $q, 4);
+            $parts = explode($outerGlue, $q, 4);
 
-            $times     = explode($innerGlue, $parts[0]);
-            $con       = explode($innerGlue, $parts[2]);
-            $memories  = explode($innerGlue, $parts[1]);
+            $times = explode($innerGlue, $parts[0]);
+            $con = explode($innerGlue, $parts[2]);
+            $memories = explode($innerGlue, $parts[1]);
 
-            $sql       = trim($parts[3]);
-            $con       = trim($con[1]);
-            $time      = trim($times[1]);
-            $memory    = trim($memories[1]);
+            $sql = trim($parts[3]);
+            $con = trim($con[1]);
+            $time = trim($times[1]);
+            $memory = trim($memories[1]);
 
             $queries[] = array('connection' => $con, 'sql' => $sql, 'time' => $time, 'memory' => $memory);
         }
@@ -136,9 +136,9 @@ class PropelDataCollector extends DataCollector
     }
 
     /**
-     * Count queries.
+     * Returns the total count of SQL queries.
      *
-     * @return int The number of queries.
+     * @return int
      */
     private function countQueries()
     {

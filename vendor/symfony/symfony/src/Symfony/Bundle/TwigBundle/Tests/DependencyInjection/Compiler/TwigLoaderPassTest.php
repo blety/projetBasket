@@ -11,15 +11,30 @@
 
 namespace Symfony\Bundle\TwigBundle\Tests\DependencyInjection\Compiler;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
 
 class TwigLoaderPassTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var \PHPUnit_Framework_MockObject_MockObject
+     */
+    private $builder;
+    /**
+     * @var Definition
+     */
+    private $chainLoader;
+    /**
+     * @var TwigLoaderPass
+     */
+    private $pass;
+
     public function setUp()
     {
-        $this->builder = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder');
+        $this->builder = $this->getMock(
+            'Symfony\Component\DependencyInjection\ContainerBuilder',
+            array('hasDefinition', 'findTaggedServiceIds', 'setAlias', 'getDefinition')
+        );
         $this->chainLoader = new Definition('loader');
         $this->pass = new TwigLoaderPass();
     }

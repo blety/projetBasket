@@ -11,12 +11,11 @@
 
 namespace Symfony\Bridge\Propel1\Form\ChoiceList;
 
-use \ModelCriteria;
-use \BaseObject;
-use \Persistent;
-
+use Symfony\Bridge\Propel1\Form\Type\ModelType;
 use Symfony\Component\Form\Exception\StringCastException;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ObjectChoiceList;
+use Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer;
+use Symfony\Component\Form\Extension\Core\DataTransformer\ChoicesToValuesTransformer;
 use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
@@ -30,7 +29,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 class ModelChoiceList extends ObjectChoiceList
 {
     /**
-     * The fields of which the identifier of the underlying class consists
+     * The fields of which the identifier of the underlying class consists.
      *
      * This property should only be accessed through identifier.
      *
@@ -41,14 +40,14 @@ class ModelChoiceList extends ObjectChoiceList
     /**
      * The query to retrieve the choices of this list.
      *
-     * @var ModelCriteria
+     * @var \ModelCriteria
      */
     protected $query;
 
     /**
      * The query to retrieve the preferred choices for this list.
      *
-     * @var ModelCriteria
+     * @var \ModelCriteria
      */
     protected $preferredQuery;
 
@@ -69,16 +68,16 @@ class ModelChoiceList extends ObjectChoiceList
     /**
      * Constructor.
      *
-     * @see \Symfony\Bridge\Propel1\Form\Type\ModelType How to use the preferred choices.
+     * @see ModelType How to use the preferred choices.
      *
      * @param string                    $class            The FQCN of the model class to be loaded.
      * @param string                    $labelPath        A property path pointing to the property used for the choice labels.
      * @param array                     $choices          An optional array to use, rather than fetching the models.
-     * @param ModelCriteria             $queryObject      The query to use retrieving model data from database.
+     * @param \ModelCriteria            $queryObject      The query to use retrieving model data from database.
      * @param string                    $groupPath        A property path pointing to the property used to group the choices.
-     * @param array|ModelCriteria       $preferred        The preferred items of this choice.
+     * @param array|\ModelCriteria      $preferred        The preferred items of this choice.
      *                                                    Either an array if $choices is given,
-     *                                                    or a ModelCriteria to be merged with the $queryObject.
+     *                                                    or a \ModelCriteria to be merged with the $queryObject.
      * @param PropertyAccessorInterface $propertyAccessor The reflection graph for reading property paths.
      * @param string                    $useAsIdentifier  a custom unique column (eg slug) to use instead of primary key.
      *
@@ -87,9 +86,9 @@ class ModelChoiceList extends ObjectChoiceList
      */
     public function __construct($class, $labelPath = null, $choices = null, $queryObject = null, $groupPath = null, $preferred = array(), PropertyAccessorInterface $propertyAccessor = null, $useAsIdentifier = null)
     {
-        $this->class        = $class;
+        $this->class = $class;
 
-        $queryClass         = $this->class.'Query';
+        $queryClass = $this->class.'Query';
         if (!class_exists($queryClass)) {
             if (empty($this->class)) {
                 throw new MissingOptionsException('The "class" parameter is empty, you should provide the model class');
@@ -97,18 +96,18 @@ class ModelChoiceList extends ObjectChoiceList
             throw new InvalidOptionsException(sprintf('The query class "%s" is not found, you should provide the FQCN of the model class', $queryClass));
         }
 
-        $query              = new $queryClass();
+        $query = new $queryClass();
 
-        $this->query        = $queryObject ?: $query;
+        $this->query = $queryObject ?: $query;
         if ($useAsIdentifier) {
-            $this->identifier   = array( $this->query->getTableMap()->getColumn($useAsIdentifier) );
+            $this->identifier = array( $this->query->getTableMap()->getColumn($useAsIdentifier) );
         } else {
-            $this->identifier   = $this->query->getTableMap()->getPrimaryKeys();
+            $this->identifier = $this->query->getTableMap()->getPrimaryKeys();
         }
 
-        $this->loaded       = is_array($choices) || $choices instanceof \Traversable;
+        $this->loaded = is_array($choices) || $choices instanceof \Traversable;
 
-        if ($preferred instanceof ModelCriteria) {
+        if ($preferred instanceof \ModelCriteria) {
             $this->preferredQuery = $preferred->mergeWith($this->query);
         }
 
@@ -191,8 +190,8 @@ class ModelChoiceList extends ObjectChoiceList
          * * The choice option "expanded" is set to false.
          * * The current request is the submission of the selected value.
          *
-         * @see \Symfony\Component\Form\Extension\Core\DataTransformer\ChoicesToValuesTransformer::reverseTransform
-         * @see \Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer::reverseTransform
+         * @see ChoicesToValuesTransformer::reverseTransform()
+         * @see ChoiceToValueTransformer::reverseTransform()
          */
         if (!$this->loaded) {
             if (1 === count($this->identifier)) {
@@ -246,8 +245,8 @@ class ModelChoiceList extends ObjectChoiceList
              * It correlates with the performance optimization in {@link ModelChoiceList::getChoicesForValues()}
              * as it won't load the actual entries from the database.
              *
-             * @see \Symfony\Component\Form\Extension\Core\DataTransformer\ChoicesToValuesTransformer::transform
-             * @see \Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransformer::transform
+             * @see ChoicesToValuesTransformer::transform()
+             * @see ChoiceToValueTransformer::transform()
              */
             if (1 === count($this->identifier)) {
                 $values = array();
@@ -369,8 +368,8 @@ class ModelChoiceList extends ObjectChoiceList
      *
      * @param mixed $model The choice to create an index for
      *
-     * @return int|string     A unique index containing only ASCII letters,
-     *                        digits and underscores.
+     * @return int|string A unique index containing only ASCII letters,
+     *                    digits and underscores.
      */
     protected function createIndex($model)
     {
@@ -390,7 +389,7 @@ class ModelChoiceList extends ObjectChoiceList
      *
      * @param mixed $model The choice to create a value for
      *
-     * @return int|string     A unique value without character limitations.
+     * @return int|string A unique value without character limitations.
      */
     protected function createValue($model)
     {
@@ -415,7 +414,7 @@ class ModelChoiceList extends ObjectChoiceList
         $models = (array) $this->query->find();
 
         $preferred = array();
-        if ($this->preferredQuery instanceof ModelCriteria) {
+        if ($this->preferredQuery instanceof \ModelCriteria) {
             $preferred = (array) $this->preferredQuery->find();
         }
 
@@ -454,12 +453,12 @@ class ModelChoiceList extends ObjectChoiceList
             }
         }
 
-        if ($model instanceof Persistent) {
+        if ($model instanceof \Persistent) {
             return array($model->getPrimaryKey());
         }
 
-        // readonly="true" models do not implement Persistent.
-        if ($model instanceof BaseObject && method_exists($model, 'getPrimaryKey')) {
+        // readonly="true" models do not implement \Persistent.
+        if ($model instanceof \BaseObject && method_exists($model, 'getPrimaryKey')) {
             return array($model->getPrimaryKey());
         }
 

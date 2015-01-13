@@ -38,10 +38,10 @@ class PropelDataCollectorTest extends Propel1TestCase
 
         $this->assertEquals(array(
             array(
-                'sql'       => "SET NAMES 'utf8'",
-                'time'      => '0.000 sec',
+                'sql' => "SET NAMES 'utf8'",
+                'time' => '0.000 sec',
                 'connection' => 'default',
-                'memory'    => '1.4 MB',
+                'memory' => '1.4 MB',
             ),
         ), $c->getQueries());
         $this->assertEquals(1, $c->getQueryCount());
@@ -60,22 +60,22 @@ class PropelDataCollectorTest extends Propel1TestCase
 
         $this->assertEquals(array(
             array(
-                'sql'       => "SET NAMES 'utf8'",
-                'time'      => '0.000 sec',
+                'sql' => "SET NAMES 'utf8'",
+                'time' => '0.000 sec',
                 'connection' => 'default',
-                'memory'    => '1.4 MB',
+                'memory' => '1.4 MB',
             ),
             array(
-                'sql'       => "SELECT tags.NAME, image.FILENAME FROM tags LEFT JOIN image ON tags.IMAGEID = image.ID WHERE image.ID = 12",
-                'time'      => '0.012 sec',
+                'sql' => "SELECT tags.NAME, image.FILENAME FROM tags LEFT JOIN image ON tags.IMAGEID = image.ID WHERE image.ID = 12",
+                'time' => '0.012 sec',
                 'connection' => 'default',
-                'memory'    => '2.4 MB',
+                'memory' => '2.4 MB',
             ),
             array(
-                'sql'       => "INSERT INTO `table` (`some_array`) VALUES ('| 1 | 2 | 3 |')",
-                'time'      => '0.012 sec',
+                'sql' => "INSERT INTO `table` (`some_array`) VALUES ('| 1 | 2 | 3 |')",
+                'time' => '0.012 sec',
                 'connection' => 'default',
-                'memory'    => '2.4 MB',
+                'memory' => '2.4 MB',
             ),
         ), $c->getQueries());
         $this->assertEquals(3, $c->getQueryCount());
@@ -85,18 +85,19 @@ class PropelDataCollectorTest extends Propel1TestCase
     private function createCollector($queries)
     {
         $config = $this->getMock('\PropelConfiguration');
+
         $config
             ->expects($this->any())
             ->method('getParameter')
             ->will($this->returnArgument(1))
-            ;
+        ;
 
         $logger = $this->getMock('\Symfony\Bridge\Propel1\Logger\PropelLogger');
         $logger
             ->expects($this->any())
             ->method('getQueries')
             ->will($this->returnValue($queries))
-            ;
+        ;
 
         return new PropelDataCollector($logger, $config);
     }

@@ -291,7 +291,7 @@ class Configuration implements ConfigurationInterface
         $organizeUrls = function ($urls) {
             $urls += array(
                 'http' => array(),
-                'ssl'  => array(),
+                'ssl' => array(),
             );
 
             foreach ($urls as $i => $url) {
@@ -442,7 +442,12 @@ class Configuration implements ConfigurationInterface
                     ->info('validation configuration')
                     ->canBeEnabled()
                     ->children()
-                        ->scalarNode('cache')->end()
+                        ->scalarNode('cache')
+                            ->beforeNormalization()
+                                // Can be removed in 3.0, once ApcCache support is dropped
+                                ->ifString()->then(function ($v) { return 'apc' === $v ? 'validator.mapping.cache.apc' : $v; })
+                            ->end()
+                        ->end()
                         ->booleanNode('enable_annotations')->defaultFalse()->end()
                         ->arrayNode('static_method')
                             ->defaultValue(array('loadValidatorMetadata'))
@@ -474,7 +479,7 @@ class Configuration implements ConfigurationInterface
                     // API version already during container configuration
                     // (to adjust service classes etc.)
                     // See https://github.com/symfony/symfony/issues/11580
-                    $v['validation']['api'] = version_compare(PHP_VERSION, '5.3.9', '<')
+                    $v['validation']['api'] = PHP_VERSION_ID < 50309
                         ? '2.4'
                         : '2.5-bc';
 

@@ -4,14 +4,19 @@ namespace Basket\DatabaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Personne
- *
+ 
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\AttributeOverrides({
+ *    @ORM\AttributeOverride(name="emailCanonical", column=@ORM\Column(unique=false, nullable=true)),
+ *    @ORM\AttributeOverride(name="usernameCanonical", column=@ORM\Column(unique=false, nullable=true))
+ * })
  */
-class Personne
+class Personne extends BaseUser
 {
     /**
      * @var integer
@@ -20,23 +25,15 @@ class Personne
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
-
+    protected $id;
+    
     /**
      * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255)
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", inversedBy="numEquipe")
+     * 
+     * @ORM\Column(name="surname", type="string", length=255)
      */
-    private $nom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=255)
-     */
-    private $prenom;
-
+    private $surname;
+   
     /**
      * @var string
      *
@@ -77,15 +74,6 @@ class Personne
      */
     private $villeParents;
     
-    /**
-     * @var string
-     * @ORM\Column(name="email", type="string", length=255)
-     * @Assert\Email(
-     *     message = "'{{ value }}' n'est pas un email valide.",
-     *     checkMX = true
-     * )
-     */    
-    private $email;
     
     /**
      * @var datetime
@@ -188,53 +176,7 @@ class Personne
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return Personne
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     * @return Personne
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string 
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
+    }   
 
     /**
      * Set genre
@@ -471,29 +413,7 @@ class Personne
     {
         return $this->ville;
     }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Personne
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
+   
 
     /**
      * Set birthday
@@ -724,5 +644,33 @@ class Personne
     public function getTelSecondaire()
     {
         return $this->telSecondaire;
+    }
+    
+    public function getParent()
+    {
+        return 'FOSUserBundle';
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return Personne
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
     }
 }

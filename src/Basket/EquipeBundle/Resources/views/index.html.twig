@@ -2,8 +2,73 @@
 
 {% block body %}
 
-{{form(form)}}
-<!-- tableau contenant toutes les équipes : 'allEquipe' ; formulaire saisi : 'form' -->
+<div class="container">
+    
+    <div class="row centered-form">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Equipes</strong></h3>
+          </div>
+          <div class="panel-body">
+            {{ form_start(form) }}
+            <form role="form">
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="nom">Nom</label>
+                  {{ form_widget(form.nom, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="convo">Sigle</label>
+                  {{ form_widget(form.sigle, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="HM">Niveau</label>
+                  {{ form_widget(form.niveau, { 'attr': {'class': 'input-append'} }) }}
+                </div>
+                <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                  <label for="score">Genre</label>
+                  {{ form_widget(form.genre, { 'attr': {'class': 'form-control', 'placeholder':'Facultatif'} }) }}
+                </div>      
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="equipeDom">Numéro</label>
+                  {{ form_widget(form.numero, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="equipeAdv">Années</label>
+                  {{ form_widget(form.annee1, { 'attr': {'class': 'form-control'} }) }}
+                  {{ form_widget(form.annee2, { 'attr': {'class': 'form-control'} }) }}
+                  {{ form_widget(form.annee3, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="arbitreA">Categorie</label>
+                  {{ form_widget(form.categorie, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-3">
+                  <label for="arbitreB">responsable d'equipe</label>
+                  {{ form_widget(form.responsableEquipe, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              
+                </div>
+              <div class="row centered-form">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                  {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
+                  <!-- Generate new token -->
+                  {{ form_widget(form._token) }}
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4">
+                  <input TYPE="reset" class="btn btn-danger btn-lg btn-block" NAME="nom" VALUE="Annuler">
+                </div>
+              </div>
+            </form>
+            {{ form_end(form) }}
+          </div>
+        </div>
+      </div>
+    
+    </div> <!-- /container -->
 
 <table class="table table-hover table-bordered table-striped">
       <tr>
@@ -33,10 +98,14 @@
             {{r.numero}}
           </td>
           <td>
-            {{r.annee1}}{{ r.annee2}}{{ r.annee3}}
+            {{r.annee1}}{% if r.annee2 != '0' %} - {{ r.annee2}}{% endif %}{%if r.annee3 != '0' %} - {{ r.annee3}}{% endif %}
           </td>
           <td>
-            {{r.genre}}
+            {% if r.genre =='1' %}
+            Homme
+            {% else %}
+            Femme
+            {% endif %}
           </td>
           <td>
             {% if r.categorie is not null %}

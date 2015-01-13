@@ -12,7 +12,6 @@
 namespace Symfony\Component\Security\Http;
 
 use Symfony\Component\Security\Core\SecurityContextInterface;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
@@ -96,7 +95,7 @@ class HttpUtils
      * @param Request $request A Request instance
      * @param string  $path    A path (an absolute path (/foo), an absolute URL (http://...), or a route name (foo))
      *
-     * @return bool    true if the path is the same as the one from the Request, false otherwise
+     * @return bool true if the path is the same as the one from the Request, false otherwise
      */
     public function checkRequestPath(Request $request, $path)
     {

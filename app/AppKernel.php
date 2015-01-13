@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Basket\EntrainementBundle\BasketEntrainementBundle(),
             new Basket\RencontreBundle\BasketRencontreBundle(),
             new Basket\EquipeBundle\BasketEquipeBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {            
