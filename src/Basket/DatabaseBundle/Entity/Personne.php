@@ -105,7 +105,7 @@ class Personne
      * @Assert\Regex("/^0[1-678]([-. ]?[0-9]{2}){4}$/")
      * @ORM\Column(name="telParents", type="string", length=255, nullable=true)
      */
-    private $telParents;
+    private $telSecondaire;
     
      /**
      * @var string
@@ -123,6 +123,13 @@ class Personne
      * @ORM\Column(name="mobile", type="string", length=255)
      */
     private $mobile;
+    
+    /**
+     * @var string
+     * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/") 
+     * @ORM\Column(name="mobileSecondaire", type="string", length=255)
+     */
+    private $mobileSecondaire;
 
     /**
      * @var string
@@ -533,29 +540,7 @@ class Personne
     {
         return $this->refEquipe;
     }
-
-    /**
-     * Set telParents
-     *
-     * @param string $telParents
-     * @return Personne
-     */
-    public function setTelParents($telParents)
-    {
-        $this->telParents = $telParents;
     
-        return $this;
-    }
-
-    /**
-     * Get telParents
-     *
-     * @return string 
-     */
-    public function getTelParents()
-    {
-        return $this->telParents;
-    }
 
     /**
      * Set emailParents
@@ -693,5 +678,51 @@ class Personne
     public function getVilleParents()
     {
         return $this->villeParents;
+    }
+
+    /**
+     * Set mobileSecondaire
+     *
+     * @param string $mobileSecondaire
+     * @return Personne
+     */
+    public function setMobileSecondaire($mobileSecondaire)
+    {
+        $this->mobileSecondaire = $mobileSecondaire;
+    
+        return $this;
+    }
+
+    /**
+     * Get mobileSecondaire
+     *
+     * @return string 
+     */
+    public function getMobileSecondaire()
+    {
+        return $this->mobileSecondaire;
+    }
+
+    /**
+     * Set telSecondaire
+     *
+     * @param string $telSecondaire
+     * @return Personne
+     */
+    public function setTelSecondaire($telSecondaire)
+    {
+        $this->telSecondaire = $telSecondaire;
+    
+        return $this;
+    }
+
+    /**
+     * Get telSecondaire
+     *
+     * @return string 
+     */
+    public function getTelSecondaire()
+    {
+        return $this->telSecondaire;
     }
 }

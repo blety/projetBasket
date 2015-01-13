@@ -1,3 +1,67 @@
-Hello!
+{% extends '::layout.html.twig' %}
 
+{% block body %}
+
+{{form(form)}}
 <!-- tableau contenant toutes les équipes : 'allEquipe' ; formulaire saisi : 'form' -->
+
+<table class="table table-hover table-bordered table-striped">
+      <tr>
+        <th>Nom</th>    
+        <th>Sigle</th>
+        <th>Niveau</th>    
+        <th>Numéro</th>
+        <!-- On met les années éventuellement multiples dans la même case du tableau -->
+        <th>Années</th>
+        <th>Genre</th>
+        <th>Catégorie</th>
+        <th>Responsable d'équipe</th>
+      </tr>
+
+      {% for r in allEquipe %}
+        <tr>
+          <td>
+            {{ r.nom }}  
+          </td>  
+          <td nowrap>
+              {{r.sigle}}
+          </td> 
+          <td>
+            {{r.niveau}}
+          </td>
+          <td>
+            {{r.numero}}
+          </td>
+          <td>
+            {{r.annee1}}{{ r.annee2}}{{ r.annee3}}
+          </td>
+          <td>
+            {{r.genre}}
+          </td>
+          <td>
+            {% if r.categorie is not null %}
+            {{r.categorie.categorie}}
+            {% endif %}              
+          </td>
+          <td>
+            {% if r.responsableEquipe is not null %}
+            {{r.responsableEquipe.nom}}
+            {% endif %}
+          </td>          
+        </tr>
+      {% endfor %}
+
+    </table>
+        
+      
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../../../web/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../..//web/js/flat.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+{% endblock %}

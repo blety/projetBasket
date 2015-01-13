@@ -60,7 +60,7 @@ class Personne
     
     /**
      * @var string
-     * @ORM\Column(name="codepostalParents", type="string", length=10)
+     * @ORM\Column(name="codepostalParents", type="string", length=10, nullable=true)
      * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $codepostalParents;
@@ -73,7 +73,7 @@ class Personne
     
     /**
      * @var string
-     * @ORM\Column(name="villeParents", type="string", length=255)
+     * @ORM\Column(name="villeParents", type="string", length=255, nullable=true)
      */
     private $villeParents;
     
@@ -96,7 +96,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="adresseParents", type="string", length=255)
+     * @ORM\Column(name="adresseParents", type="string", length=255, nullable=true)
      */
     private $adresseParents;
     
@@ -105,11 +105,11 @@ class Personne
      * @Assert\Regex("/^0[1-678]([-. ]?[0-9]{2}){4}$/")
      * @ORM\Column(name="telParents", type="string", length=255, nullable=true)
      */
-    private $telParents;
+    private $telSecondaire;
     
      /**
      * @var string
-     * @ORM\Column(name="emailParents", type="string", length=255)
+     * @ORM\Column(name="emailParents", type="string", length=255, nullable=true)
      * @Assert\Email(
      *     message = "'{{ value }}' n'est pas un email valide.",
      *     checkMX = true
@@ -123,6 +123,13 @@ class Personne
      * @ORM\Column(name="mobile", type="string", length=255)
      */
     private $mobile;
+    
+    /**
+     * @var string
+     * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/") 
+     * @ORM\Column(name="mobileSecondaire", type="string", length=255)
+     */
+    private $mobileSecondaire;
 
     /**
      * @var string
@@ -533,29 +540,7 @@ class Personne
     {
         return $this->refEquipe;
     }
-
-    /**
-     * Set telParents
-     *
-     * @param string $telParents
-     * @return Personne
-     */
-    public function setTelParents($telParents)
-    {
-        $this->telParents = $telParents;
     
-        return $this;
-    }
-
-    /**
-     * Get telParents
-     *
-     * @return string 
-     */
-    public function getTelParents()
-    {
-        return $this->telParents;
-    }
 
     /**
      * Set emailParents
@@ -647,5 +632,74 @@ class Personne
     public function getLicenseRecue()
     {
         return $this->licenseRecue;
+    }
+
+    /**
+     * Set codepostalParents
+     *
+     * @param string $codepostalParents
+     * @return Personne
+     */
+    public function setCodepostalParents($codepostalParents)
+    {
+        $this->codepostalParents = $codepostalParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get codepostalParents
+     *
+     * @return string 
+     */
+    public function getCodepostalParents()
+    {
+        return $this->codepostalParents;
+    }
+
+    /**
+     * Set villeParents
+     *
+     * @param string $villeParents
+     * @return Personne
+     */
+    public function setVilleParents($villeParents)
+    {
+        $this->villeParents = $villeParents;
+    
+        return $this;
+    }
+
+    /**
+     * Get villeParents
+     *
+     * @return string 
+     */
+    public function getVilleParents()
+    {
+        return $this->villeParents;
+    }
+
+    /**
+     * Set mobileSecondaire
+     *
+     * @param string $mobileSecondaire
+     * @return Personne
+     */
+    public function setMobileSecondaire($mobileSecondaire)
+    {
+        $this->mobileSecondaire = $mobileSecondaire;
+    
+        return $this;
+    }
+
+    /**
+     * Get mobileSecondaire
+     *
+     * @return string 
+     */
+    public function getMobileSecondaire()
+    {
+        return $this->mobileSecondaire;
     }
 }

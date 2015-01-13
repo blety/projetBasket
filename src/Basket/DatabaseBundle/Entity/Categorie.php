@@ -25,7 +25,7 @@ class Categorie
     
     /**
      * @var string
-     * @ORM\Column(name="annee", type="string", nullable=true)
+     * @ORM\Column(name="annee", type="string", length=4, nullable=true)
      * @Assert\Regex("/^19[0-9]{2}$/")
      */
     private $annee;

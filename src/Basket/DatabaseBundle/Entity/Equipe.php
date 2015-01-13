@@ -3,6 +3,7 @@
 namespace Basket\DatabaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * equipe
@@ -22,23 +23,23 @@ class Equipe
     private $id;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="annee1", type="datetime", nullable=true)
+     * @var string
+     * @ORM\Column(name="annee1", type="string", length=4, nullable=true)
+     * @Assert\Regex("/^19[0-9]{2}$/")
      */
     private $annee1;
     
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="annee2", type="datetime", nullable=true)
+     * @var string
+     * @ORM\Column(name="annee2", type="string", length=4, nullable=true)
+     * @Assert\Regex("/^19[0-9]{2}$/")
      */
     private $annee2;
     
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="annee3", type="datetime", nullable=true)
+     * @var string
+     * @ORM\Column(name="annee3", type="string", length=4, nullable=true)
+     * @Assert\Regex("/^19[0-9]{2}$/")
      */
     private $annee3;
     
