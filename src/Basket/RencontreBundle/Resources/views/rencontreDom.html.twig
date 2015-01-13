@@ -113,7 +113,8 @@
           </td>  
           <td nowrap>
             {% if r.score is null %}
-              <a href="#myModal" class="btnAddProductVersion" id="addProductVersion" name="addProductVersion" title="add product version" data-toggle="modal" data-target="#myModal"> Score à renseigner </a>
+              <a href="#popupAddScore" id="addScore" name="addScore" title="add score" data-toggle="modal" data-target="#popupAddScore"> Score à renseigner </a>
+              {% render(controller("BasketRencontreBundle:Rencontre:popup"))
             {% else %}
               {{r.score}}
             {% endif %}

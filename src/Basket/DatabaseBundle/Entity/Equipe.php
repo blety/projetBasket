@@ -87,6 +87,7 @@ class Equipe
     
     /**
      * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
+     * @ORM\JoinColumn(name="responsableEquipe_id", referencedColumnName="id", nullable=true)
      */
     private $responsableEquipe;
       

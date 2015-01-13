@@ -28,4 +28,9 @@ class RencontreController extends Controller
             'allRencontreDom' => $allRencontreDom,
                 ));
     }
+    
+    public function popupAction()
+    {
+      
+    }
 }
