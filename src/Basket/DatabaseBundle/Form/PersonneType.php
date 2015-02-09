@@ -20,6 +20,7 @@ class PersonneType extends AbstractType
             ->add('genre','choice',array(
                 'choices'=> array('masculin' => 'masculin', 'féminin' => 'féminin')
             ))
+            ->add('password')
             ->add('birthday')
             ->add('adresse')
             ->add('adresseParents')

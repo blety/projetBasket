@@ -19,11 +19,11 @@
               <div class="row">
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
                   <label for="nom">Nom</label>
-                  {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                  {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
                   <label for="prenom">Prénom</label>
-                  {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                  {{ form_widget(form.surname, { 'attr': {'class': 'form-control'} }) }}
                 </div>
                 <div class="form-group col-xs-6 col-sm-6 col-md-3">
                   <label for="genre">Genre</label>
@@ -34,6 +34,12 @@
                   {{ form_widget(form.refPersonne, { 'attr': {'class': 'form-control'} }) }}
                 </div>      
               </div>
+                <div class="row">
+                  <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                  <label for="refP">Mot de passe </label>
+                  {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
+                </div> 
+                </div>
               <div class="row">
                 <div class="form-group col-xs-6 col-sm-3 col-md-3">
                   <label for="birthday">Date de naissance</label>
@@ -162,16 +168,17 @@
           <th>Telephone</th>
           <th>Telephone secondaire</th>
           <th>License</th>
+          <th>Mot de passe</th>
           
         </tr>
 
         {% for player in allPlayers %}
           <tr>
             <td>
-              {{player.nom}}
+              {{player.username}}
             </td>
             <td>
-              {{player.prenom}}
+              {{player.surname}}
             </td>
             <td>
               {% if player.genre == '1' %}
@@ -216,6 +223,9 @@
               {{player.telSecondaire}}
             <td>
               {{player.license}}
+            </td>
+            <td>
+              {{player.password}}
             </td>
             
           </tr>

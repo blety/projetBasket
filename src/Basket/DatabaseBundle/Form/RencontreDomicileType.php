@@ -30,7 +30,6 @@ class RencontreDomicileType extends AbstractType
             ))
             ->add('arbitreA','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                //'property'=>'nom',
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                             
@@ -40,7 +39,6 @@ class RencontreDomicileType extends AbstractType
             ))
             ->add('arbitreB','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                //'property'=>'nom',
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                             
@@ -50,15 +48,15 @@ class RencontreDomicileType extends AbstractType
             ))
             ->add('marqueurA','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom'
+                'property'=>'username'
             ))
             ->add('marqueurB','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom'
+                'property'=>'username'
             ))
             ->add('marqueurC','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom'
+                'property'=>'username'
             ))
             ->add('divers')
             ->add('rang')

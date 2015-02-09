@@ -115,7 +115,7 @@ class Personne extends BaseUser
     /**
      * @var string
      * @Assert\Regex("/^0[1-68]([-. ]?[0-9]{2}){4}$/") 
-     * @ORM\Column(name="mobileSecondaire", type="string", length=255)
+     * @ORM\Column(name="mobileSecondaire", type="string", length=255, nullable=true)
      */
     private $mobileSecondaire;
 
@@ -365,7 +365,7 @@ class Personne extends BaseUser
     }
     
     public function __toString(){
-      return $this->nom;
+      return $this->username;
     }
 
     /**
