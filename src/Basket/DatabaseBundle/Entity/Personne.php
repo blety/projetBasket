@@ -50,7 +50,7 @@ class Personne extends BaseUser
     
     /**
      * @var string
-     * @ORM\Column(name="codepostal", type="string", length=10)
+     * @ORM\Column(name="codepostal", type="string", length=10, nullable=true)
      * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $codepostal;
@@ -159,12 +159,12 @@ class Personne extends BaseUser
     private $licenseRecue;
         
     /**
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\RefPersonne", inversedBy="type")
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\RefPersonne")
      */
     private $refPersonne;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe", inversedBy="nom")
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Equipe")
      */
     private $refEquipe;
     

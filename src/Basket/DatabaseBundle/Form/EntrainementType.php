@@ -26,11 +26,11 @@ class EntrainementType extends AbstractType
             ))
             ->add('entraineur','entity',array(
                 'class'=>'BasketDatabaseBundle:Personne',
-                'property'=>'nom',
+                'property'=>'username',
                 'query_builder'=> function(EntityRepository $er) {
                     return $er->createQueryBuilder('p')
                             ->where('p.refPersonne=:id')
-                            ->setParameter('id',3);
+                            ->setParameter('id',5);
                     },
             ))
             ->add('equipe','entity',array(

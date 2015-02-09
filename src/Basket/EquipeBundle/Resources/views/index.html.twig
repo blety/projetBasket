@@ -45,11 +45,7 @@
                 <div class="form-group col-xs-12 col-sm-6 col-md-3">
                   <label for="arbitreA">Categorie</label>
                   {{ form_widget(form.categorie, { 'attr': {'class': 'form-control'} }) }}
-                </div>
-                <div class="form-group col-xs-12 col-sm-6 col-md-3">
-                  <label for="arbitreB">responsable d'equipe</label>
-                  {{ form_widget(form.responsableEquipe, { 'attr': {'class': 'form-control'} }) }}
-                </div>
+                </div> 
               
                 </div>
               <div class="row centered-form">
@@ -79,8 +75,7 @@
         <!-- On met les années éventuellement multiples dans la même case du tableau -->
         <th>Années</th>
         <th>Genre</th>
-        <th>Catégorie</th>
-        <th>Responsable d'équipe</th>
+        <th>Catégorie</th>        
       </tr>
 
       {% for r in allEquipe %}
@@ -111,12 +106,7 @@
             {% if r.categorie is not null %}
             {{r.categorie.categorie}}
             {% endif %}              
-          </td>
-          <td>
-            {% if r.responsableEquipe is not null %}
-            {{r.responsableEquipe.username}}
-            {% endif %}
-          </td>          
+          </td>      
         </tr>
       {% endfor %}
 

@@ -95,7 +95,9 @@
             {{e.salle.nom}}
           </td>
           <td>
-            {{e.entraineur.nom}}
+            {% if e.entraineur is not null %}
+            {{e.entraineur.username}}
+            {% endif %}
           </td>
           <td>
             {{e.equipe.categorie.sigle}}

@@ -34,7 +34,6 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="categorie", type="string", length=255)
-     * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Equipe", mappedBy="categorie")
      */
     private $categorie;
 

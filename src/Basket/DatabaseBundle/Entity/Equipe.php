@@ -77,20 +77,10 @@ class Equipe
     private $numero;
     
     /**
-     * @ORM\OneToMany(targetEntity="Basket\DatabaseBundle\Entity\Personne", mappedBy="nom")
-     */
-    private $joueur;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Categorie", inversedBy="categorie")
+     * @ORM\ManyToOne(targetEntity="Basket\DatabaseBundle\Entity\Categorie")
      */
     private $categorie;
     
-    /**
-     * @ORM\OneToOne(targetEntity="Basket\DatabaseBundle\Entity\Personne", cascade={"persist"})
-     * @ORM\JoinColumn(name="responsableEquipe_id", referencedColumnName="id", nullable=true)
-     */
-    private $responsableEquipe;
       
     /**
      * Get id

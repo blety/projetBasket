@@ -26,7 +26,6 @@ class EquipeType extends AbstractType
             ))
             ->add('numero')
             ->add('categorie')
-            ->add('responsableEquipe')
             ->add('save','submit')
         ;
     }
