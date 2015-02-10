@@ -20,7 +20,7 @@ class PlayerController extends Controller
           $em->persist($player);
           $em->flush();
         }
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $allPlayers = $em->getRepository('BasketDatabaseBundle:Personne')->findAll();
         //var_dump($allPlayers);
         return $this->render('BasketPlayerBundle::index.html.twig', array(

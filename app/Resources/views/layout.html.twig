@@ -34,14 +34,14 @@
         </div>
         <div id ="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="../../../web/app_dev.php/player/index">Player Index</a></li>
-            <li><a href="../../../web/app_dev.php/equipe/index">Equipe Index</a></li>
-            <li><a href="../../../web/app_dev.php/entrainement/index">Entrainement Index</a></li>            
+            <li><a href={{path('basket_player_homepage')}}>Player Index</a></li>
+            <li><a href={{path('basket_equipe_homepage')}}>Equipe Index</a></li>
+            <li><a href={{path('basket_entrainement_homepage')}}>Entrainement Index</a></li>            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Rencontres <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="../../../web/app_dev.php/rencontreDom/index">Rencontre Domicile</a></li>
-                <li><a href="../../../web/app_dev.php/rencontreExt/index">Rencontre Extérieur</a></li>                
+                <li><a href={{path('basket_rencontreDom_homepage')}}>Rencontre Domicile</a></li>
+                <li><a href={{path('basket_rencontreExt_homepage')}}>Rencontre Extérieur</a></li>                
               </ul>
             </li>
             <!--<li class="dropdown">

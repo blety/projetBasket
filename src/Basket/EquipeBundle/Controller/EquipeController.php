@@ -20,7 +20,7 @@ class EquipeController extends Controller
           $em->flush();
         }
         
-        $em = $this->getDoctrine()->getEntityManager()->getRepository('BasketDatabaseBundle:Equipe');
+        $em = $this->getDoctrine()->getManager()->getRepository('BasketDatabaseBundle:Equipe');
         $allEquipe = $em->findAll();
         return $this->render('BasketEquipeBundle::index.html.twig', array(
             'form' => $form->createView(),

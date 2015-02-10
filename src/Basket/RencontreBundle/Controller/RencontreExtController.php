@@ -21,7 +21,7 @@ class RencontreExtController extends Controller
           $em->flush();
         }
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $allRencontreExt = $em->getRepository('BasketDatabaseBundle:RencontreExterieur')->findAll();
         return $this->render('BasketRencontreBundle::rencontreExt.html.twig', array(
             'form' => $form->createView(),

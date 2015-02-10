@@ -1,7 +1,7 @@
-basket_rencontre_homepage:
+basket_rencontreDom_homepage:
     path:     /rencontreDom/index
     defaults: { _controller: BasketRencontreBundle:Rencontre:index }
     
-basket_rencontreext:
+basket_rencontreExt_homepage:
     path:   /rencontreExt/index
     defaults: {_controller: BasketRencontreBundle:RencontreExt:index}

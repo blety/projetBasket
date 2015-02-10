@@ -21,7 +21,7 @@ class RencontreController extends Controller
           $em->flush();
         }
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $allRencontreDom = $em->getRepository('BasketDatabaseBundle:RencontreDomicile')->findAll();
         return $this->render('BasketRencontreBundle::rencontreDom.html.twig', array(
             'form' => $form->createView(),

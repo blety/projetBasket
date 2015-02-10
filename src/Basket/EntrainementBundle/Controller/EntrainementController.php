@@ -27,7 +27,7 @@ class EntrainementController extends Controller
         }
         // On récupère le contenu du repositoty EntrainementRepository, pour pouvoir effectuer des requêtes dessus
         // et accéder aux données déjà sauvegardées en BDD
-        $em = $this->getDoctrine()->getEntityManager()->getRepository('BasketDatabaseBundle:Entrainement');
+        $em = $this->getDoctrine()->getManager()->getRepository('BasketDatabaseBundle:Entrainement');
         // On récupère tous les entrainements
         $allEntrainement = $em->findAll();
         // On retourne la vue index, à laquelle on passe en paramètres le formulaire ainsi que le tableau de tous les 
