@@ -1,15 +1,18 @@
 {% extends "::layout.html.twig" %}
-
+{# Tous ce qui est contenu entre les {{block body}} sera inclus dans le block body du layout principal,
+   dans app/Ressources/views/layout.html.twig #}
 {% block body %}
-
+    <!-- Le formulaire est détaillé champ par champ -->
     <!-- Example row of columns -->
     <div class="row centered-form">
+      <!-- On utilise la grille de Bootstrap -->
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><strong>Tous les entrainements</strong> <small> Formulaire pour programmer un entrainement !!! </small></h3>
           </div>
           <div class="panel-body">
+            {# Chaque formulaire commence par form_start() #}
             {{ form_start(form) }}
             <form role="form">
               <div class="row">
@@ -47,7 +50,7 @@
               <div class="row centered-form">
                 <div class="form-group col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
                   {{ form_widget(form.save, { 'attr': {'class': 'btn btn-success btn-lg btn-block'} }) }}
-                  <!-- Generate new token -->
+                  <!-- Génere un nouveau token de sécurité, pour s'assurer que chaque formulaire est unique -->
                   {{ form_widget(form._token) }}
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
@@ -55,15 +58,17 @@
                 </div>
               </div>
             </form>
+                {# Chaque formulaire se termine par form_end()#}
             {{ form_end(form) }}
           </div>
         </div>
       </div>
     </div> <!-- /container -->
 
-
+    <!-- Notre tableau de tous les entrainements -->
     <table class="table table-hover table-bordered table-striped">
       <tr>
+        <!-- En tête -->
         <th>Date</th>
         <th>Début</th>
         <th>Fin</th>
@@ -76,6 +81,7 @@
       {% for e in allEntrainement %}
         <tr>
           <td>
+            {# On affiche la date au format jour/mois/année #}
             {{e.jour|date("d/m/Y")}}
           </td>
           <td>
@@ -95,6 +101,7 @@
             {{e.salle.nom}}
           </td>
           <td>
+            {# On s'assure que l'entraineur a été renseigné #}
             {% if e.entraineur is not null %}
             {{e.entraineur.username}}
             {% endif %}
