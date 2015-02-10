@@ -1,3 +1,7 @@
 basket_player_homepage:
     path:     /player/index
     defaults: { _controller: BasketPlayerBundle:Player:index }
+    
+basket_player_connexion:
+    path: /connexion
+    defaults: { _controller: BasketPlayerBundle:Player:connexion }

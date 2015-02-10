@@ -4,7 +4,6 @@ security:
     # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
-        Symfony\Component\Security\Core\User\User: plaintext
 
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:
@@ -15,29 +14,26 @@ security:
     providers:
         fos_userbundle:
           id: fos_user.user_provider.username
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     # the main part of the security, where you can set up firewalls
     # for specific sections of your app
     firewalls:
         main:
           pattern: ^/
+          anonymous: ~
           form_login:
             provider: fos_userbundle
-            csrf_provider: form.csrf_provider
-          logout: true
-          anonymous: true
-
+            login_path: fos_user_security_login
+            check_path:     fos_user_security_check
+            default_target_path: tmtg_homepage
+          logout: 
+            path: fos_user_security_logout
+            target: tmtg_homepage
+          
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
     # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
-    access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+    access_control:        
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }        
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

@@ -28,4 +28,22 @@ class PlayerController extends Controller
             'allPlayers'=>$allPlayers
                 ));
     }
+    
+    public function homepageAction()
+    {
+      $securityContext = $this->container->get('security.context');
+
+        // Si l'utilisateur n'est PAS identifié, on ne peut pas appeler la méthode getProject
+        
+        if (!$securityContext->isGranted('ROLE_ADMIN')) {
+
+          return $this->render('BasketPlayerBundle::pageUser.html.twig');
+            }               
+        
+        // Si on est connecté en tant qu'admin, on définit la page d'accueil de l'admin 
+        // comme la gestion des utilisateurs. 
+        else {
+            return $this->render('BasketPlayerBundle:player:pageAdmin.html.twig');
+        }
+    }
 }
