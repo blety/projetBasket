@@ -16,13 +16,13 @@
         },
         "time": "2012-12-21 11:40:51",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Psr\\Log\\": ""
             }
         },
-        "notification-url": "http://packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -64,13 +64,13 @@
                 "dev-master": "1.18-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Twig_": "lib/"
             }
         },
-        "notification-url": "http://packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "BSD-3-Clause"
         ],
@@ -123,13 +123,13 @@
                 "dev-master": "1.0.x-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-0": {
                 "Doctrine\\Common\\Lexer\\": "lib/"
             }
         },
-        "notification-url": "http://packagist.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1726,18 +1726,18 @@
     },
     {
         "name": "sensio/generator-bundle",
-        "version": "v2.5.1",
-        "version_normalized": "2.5.1.0",
+        "version": "v2.5.2",
+        "version_normalized": "2.5.2.0",
         "target-dir": "Sensio/Bundle/GeneratorBundle",
         "source": {
             "type": "git",
             "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-            "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd"
+            "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/9e23fc3de265ae013690d84aab98e7a84f46edcd",
-            "reference": "9e23fc3de265ae013690d84aab98e7a84f46edcd",
+            "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4b09746520a826a7bf34a466ba31c7d8740fef7e",
+            "reference": "4b09746520a826a7bf34a466ba31c7d8740fef7e",
             "shasum": ""
         },
         "require": {
@@ -1749,7 +1749,7 @@
             "symfony/doctrine-bridge": "~2.2",
             "twig/twig": "~1.11"
         },
-        "time": "2015-01-13 07:33:46",
+        "time": "2015-02-11 07:21:23",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {

@@ -15,8 +15,12 @@ class PlayerController extends Controller
         $form = $this->createForm(new PersonneType(),$player);
         $form->handleRequest($request);
         if ($form->isValid()){
-          $em = $this->getDoctrine()->getManager();
-          //$personne_repository = $em->getRepository('BasketDatabaseBundle:Personne');
+          // on recupere le manager du fos user qui a partir du mot de passe donné le crypte et le met en base
+          $userManager = $this->container->get('fos_user.user_manager');
+          $player->setPlainPassword($form->get('password')->getData());
+          $userManager->updatePassword($player);
+          
+          $em = $this->getDoctrine()->getManager();          
           $em->persist($player);
           $em->flush();
         }

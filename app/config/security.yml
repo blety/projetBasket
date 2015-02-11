@@ -18,6 +18,10 @@ security:
     # the main part of the security, where you can set up firewalls
     # for specific sections of your app
     firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            anonymous: ~
         main:
           pattern: ^/
           anonymous: ~
@@ -25,10 +29,10 @@ security:
             provider: fos_userbundle
             login_path: fos_user_security_login
             check_path:     fos_user_security_check
-            default_target_path: tmtg_homepage
+            default_target_path: basket_player_homepage
           logout: 
             path: fos_user_security_logout
-            target: tmtg_homepage
+            target: basket_player_homepage
           
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
