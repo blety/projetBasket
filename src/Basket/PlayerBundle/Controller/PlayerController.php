@@ -18,15 +18,19 @@ class PlayerController extends Controller
           // on recupere le manager du fos user qui a partir du mot de passe donné le crypte et le met en base
           $userManager = $this->container->get('fos_user.user_manager');
           $player->setPlainPassword($form->get('password')->getData());
-          $userManager->updatePassword($player);
+          $player->addRole('ROLE_USER');
+          //$player->setRoles(array('ROLE_USER'));
           
+          //$userManager->updatePassword($player);
+          $userManager->updateUser($player);
+
           $em = $this->getDoctrine()->getManager();          
           $em->persist($player);
           $em->flush();
         }
         $em = $this->getDoctrine()->getManager();
         $allPlayers = $em->getRepository('BasketDatabaseBundle:Personne')->findAll();
-        //var_dump($allPlayers);
+    
         return $this->render('BasketPlayerBundle::index.html.twig', array(
             'form' => $form->createView(),
             'allPlayers'=>$allPlayers

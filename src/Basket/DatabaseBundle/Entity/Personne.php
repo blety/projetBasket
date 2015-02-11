@@ -673,4 +673,15 @@ class Personne extends BaseUser
     {
         return $this->surname;
     }
+    
+    /**
+     * Constructor
+     * On définit le compte d'un nouvel utilisateur comme par défaut actif
+     */
+    public function __construct() {
+      parent::__construct();
+      $this->setEnabled(true);
+      //$this->setRoles(array("ROLE_USER"));
+    }
+
 }
